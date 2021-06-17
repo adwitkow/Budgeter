@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Xml.Serialization;
 
 namespace Budgeter.Core.Data.XmlData.PKO
 {
@@ -6,9 +7,9 @@ namespace Budgeter.Core.Data.XmlData.PKO
 	public class PkoOperation
 	{
 		[XmlElement(ElementName = "exec-date")]
-		public string ExecutionDate { get; set; }
+		public DateTime ExecutionDate { get; set; }
 		[XmlElement(ElementName = "order-date")]
-		public string OrderDate { get; set; }
+		public DateTime OrderDate { get; set; }
 		[XmlElement(ElementName = "type")]
 		public string Type { get; set; }
 		[XmlElement(ElementName = "description")]

@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Xml.Serialization;
 
 namespace Budgeter.Core.Data.XmlData.PKO
 {
@@ -6,8 +7,8 @@ namespace Budgeter.Core.Data.XmlData.PKO
 	public class SearchDate
 	{
 		[XmlAttribute(AttributeName = "since")]
-		public string Since { get; set; }
+		public DateTime Since { get; set; }
 		[XmlAttribute(AttributeName = "to")]
-		public string To { get; set; }
+		public DateTime To { get; set; }
 	}
 }

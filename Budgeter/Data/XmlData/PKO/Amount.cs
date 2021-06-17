@@ -8,6 +8,6 @@ namespace Budgeter.Core.Data.XmlData.PKO
         [XmlAttribute(AttributeName = "curr")]
         public string Currency { get; set; }
         [XmlText]
-        public string Text { get; set; }
+        public decimal Text { get; set; }
     }
 }
