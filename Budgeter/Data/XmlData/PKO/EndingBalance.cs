@@ -2,7 +2,7 @@
 
 namespace Budgeter.Core.Data.XmlData.PKO
 {
-	[XmlRoot(ElementName = "ending-balance")]
+    [XmlRoot(ElementName = "ending-balance")]
 	public class EndingBalance
 	{
 		[XmlAttribute(AttributeName = "curr")]

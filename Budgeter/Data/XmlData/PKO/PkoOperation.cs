@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace Budgeter.Core.Data.XmlData.PKO
 {
-	[XmlRoot(ElementName = "operation")]
+    [XmlRoot(ElementName = "operation")]
 	public class PkoOperation
 	{
 		[XmlElement(ElementName = "exec-date")]

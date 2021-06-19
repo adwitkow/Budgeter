@@ -1,7 +1,4 @@
-﻿using Budgeter.Core.Data.XmlData.PKO;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
 namespace Budgeter.Core.Data.Entities
 {

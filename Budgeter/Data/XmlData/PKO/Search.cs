@@ -2,7 +2,7 @@
 
 namespace Budgeter.Core.Data.XmlData.PKO
 {
-	[XmlRoot(ElementName = "search")]
+    [XmlRoot(ElementName = "search")]
 	public class Search
 	{
 		[XmlElement(ElementName = "account")]

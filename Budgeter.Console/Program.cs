@@ -1,5 +1,4 @@
-﻿using Budgeter.Core.Data.XmlData;
-using Budgeter.Core.Data.XmlData.PKO;
+﻿using Budgeter.Core.Data.XmlData.PKO;
 using System;
 using System.Xml;
 using System.Xml.Serialization;

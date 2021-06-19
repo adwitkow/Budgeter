@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace Budgeter.Core.Data.XmlData.PKO
 {
-	[XmlRoot(ElementName = "account-history")]
+    [XmlRoot(ElementName = "account-history")]
 	public class AccountHistory
 	{
 		[XmlElement(ElementName = "search")]
