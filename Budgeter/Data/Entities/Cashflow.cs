@@ -2,7 +2,7 @@
 
 namespace Budgeter.Core.Data.Entities
 {
-    class Cashflow
+    public class Cashflow
     {
         public DateTime Timestamp { get; set; }
         public Category Category { get; set; }
