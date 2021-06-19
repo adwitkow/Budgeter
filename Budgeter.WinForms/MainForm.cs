@@ -15,9 +15,11 @@ namespace Budgeter.WinForms
         {
             this.dbContext = dbContext;
 
-            InitializeComponent();
+            dbContext.Cashflows.Add(new Cashflow() { Timestamp = DateTime.UtcNow, Currency = "PLN", Amount = 10 });
 
-            Cashflows.Add(new Cashflow() { Timestamp = DateTime.UtcNow, Currency = "PLN", Amount = 10 });
+            dbContext.SaveChanges();
+
+            InitializeComponent();
         }
     }
 }
