@@ -1,12 +1,23 @@
-﻿using System.Windows.Forms;
+﻿using Budgeter.Core.Data;
+using Budgeter.Core.Data.Entities;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Budgeter.WinForms
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private readonly BudgeterDbContext dbContext;
+        private List<Cashflow> Cashflows = new List<Cashflow>();
+
+        public MainForm(BudgeterDbContext dbContext)
         {
+            this.dbContext = dbContext;
+
             InitializeComponent();
+
+            Cashflows.Add(new Cashflow() { Timestamp = DateTime.UtcNow, Currency = "PLN", Amount = 10 });
         }
     }
 }

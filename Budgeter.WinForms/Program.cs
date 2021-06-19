@@ -1,3 +1,4 @@
+using Budgeter.Core.Data;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows.Forms;
@@ -28,7 +29,10 @@ namespace Budgeter.WinForms
         static void ConfigureServices()
         {
             var services = new ServiceCollection();
+            
             services.AddScoped<MainForm>();
+            services.AddScoped<BudgeterDbContext>();
+
             ServiceProvider = services.BuildServiceProvider();
         }
     }
