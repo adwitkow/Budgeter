@@ -198,6 +198,10 @@
       <Project>{CFF5E166-30C7-4369-A12E-B948260BE10D}</Project>
       <Name>Budgeter.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Budgeter.DataAccess\Budgeter.DataAccess.csproj">
+      <Project>{118685CA-F747-4A69-84E0-B273450D07CD}</Project>
+      <Name>Budgeter.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />

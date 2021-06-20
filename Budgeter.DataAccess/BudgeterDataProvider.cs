@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Budgeter.DataAccess
 {
-    class BudgeterDataProvider
+    public class BudgeterDataProvider
     {
         private readonly BudgeterDbContext dbContext;
 

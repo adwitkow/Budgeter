@@ -14,25 +14,19 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using Budgeter.DataAccess;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
-using Budgeter.Core.Data;
-using Budgeter.Core.Data.Entities;
 
 namespace Budgeter.WinForms
 {
     public partial class MainForm : Form
     {
-        private readonly BudgeterDbContext dbContext;
+        private readonly BudgeterDataProvider budgeterDataProvider;
 
-        public MainForm(BudgeterDbContext dbContext)
+        public MainForm(BudgeterDataProvider budgeterDataProvider)
         {
-            this.dbContext = dbContext;
-
-            dbContext.Cashflows.Add(new Cashflow() { Timestamp = DateTime.UtcNow, Currency = "PLN", Amount = 10 });
-
-            dbContext.SaveChanges();
+            this.budgeterDataProvider = budgeterDataProvider;
 
             this.InitializeComponent();
         }
