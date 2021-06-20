@@ -15,7 +15,6 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Windows.Forms;
-using Budgeter.DataAccess;
 using Budgeter.ViewModel;
 
 namespace Budgeter.WinForms
