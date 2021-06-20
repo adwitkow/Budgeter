@@ -17,6 +17,7 @@
 using System;
 using System.Windows.Forms;
 using Budgeter.DataAccess;
+using Budgeter.ViewModel;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Budgeter.WinForms
@@ -48,6 +49,7 @@ namespace Budgeter.WinForms
             services.AddScoped<MainForm>();
             services.AddScoped<BudgeterDbContext>();
             services.AddScoped<BudgeterDataProvider>();
+            services.AddScoped<MainViewModel>();
 
             ServiceProvider = services.BuildServiceProvider();
         }

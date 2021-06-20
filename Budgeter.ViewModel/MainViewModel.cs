@@ -14,11 +14,28 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-namespace Budgeter.Core.Model
+using System.Collections.ObjectModel;
+using Budgeter.DataAccess;
+
+namespace Budgeter.ViewModel
 {
-    public class Location
+    public class MainViewModel : ViewModelBase
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        private readonly BudgeterDataProvider budgeterDataProvider;
+
+        public MainViewModel(BudgeterDataProvider budgeterDataProvider)
+        {
+            this.budgeterDataProvider = budgeterDataProvider;
+
+            this.Cashflows = new ObservableCollection<CashflowViewModel>();
+
+            var cashflowModels = budgeterDataProvider.GetCashflows();
+            foreach (var cashflow in cashflowModels)
+            {
+                this.Cashflows.Add(new CashflowViewModel(cashflow));
+            }
+        }
+
+        public ObservableCollection<CashflowViewModel> Cashflows { get; }
     }
 }

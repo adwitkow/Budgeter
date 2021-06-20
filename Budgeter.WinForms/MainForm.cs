@@ -16,18 +16,21 @@
 
 using System.Windows.Forms;
 using Budgeter.DataAccess;
+using Budgeter.ViewModel;
 
 namespace Budgeter.WinForms
 {
     public partial class MainForm : Form
     {
-        private readonly BudgeterDataProvider budgeterDataProvider;
+        private readonly MainViewModel mainViewModel;
 
-        public MainForm(BudgeterDataProvider budgeterDataProvider)
+        public MainForm(MainViewModel mainViewModel)
         {
-            this.budgeterDataProvider = budgeterDataProvider;
-
             this.InitializeComponent();
+
+            this.mainViewModel = mainViewModel;
+
+            this.cashflowsDataGridView.DataSource = mainViewModel.Cashflows;
         }
     }
 }

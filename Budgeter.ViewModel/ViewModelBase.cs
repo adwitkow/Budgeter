@@ -14,11 +14,19 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-namespace Budgeter.Core.Model
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace Budgeter.ViewModel
 {
-    public class Location
+    public class ViewModelBase : INotifyPropertyChanged
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        /// <inheritdoc/>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName]string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

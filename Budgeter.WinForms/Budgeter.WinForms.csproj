@@ -202,6 +202,10 @@
       <Project>{118685CA-F747-4A69-84E0-B273450D07CD}</Project>
       <Name>Budgeter.DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Budgeter.ViewModel\Budgeter.ViewModel.csproj">
+      <Project>{6BE6ECC6-91E2-43D4-875D-577C77034F88}</Project>
+      <Name>Budgeter.ViewModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />

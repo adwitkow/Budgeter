@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Budgeter.ViewModel</name>
+    </assembly>
+    <members>
+        <member name="E:Budgeter.ViewModel.ViewModelBase.PropertyChanged">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
