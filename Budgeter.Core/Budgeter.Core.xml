@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Budgeter.Core</name>
+    </assembly>
+    <members>
+        <member name="M:Budgeter.Core.Data.BudgeterDbContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>
