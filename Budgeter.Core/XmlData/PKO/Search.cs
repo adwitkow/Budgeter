@@ -16,7 +16,7 @@
 
 using System.Xml.Serialization;
 
-namespace Budgeter.Core.Data.XmlData.PKO
+namespace Budgeter.Core.XmlData.PKO
 {
     [XmlRoot(ElementName = "search")]
     public class Search

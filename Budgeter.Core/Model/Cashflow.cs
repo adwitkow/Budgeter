@@ -14,17 +14,26 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using System.Xml.Serialization;
+using System;
 
-namespace Budgeter.Core.Data.XmlData.PKO
+namespace Budgeter.Core.Model
 {
-    [XmlRoot(ElementName = "amount")]
-    public class Amount
+    public class Cashflow
     {
-        [XmlAttribute(AttributeName = "curr")]
-        public string Currency { get; set; }
+        public int Id { get; set; }
 
-        [XmlText]
-        public decimal Text { get; set; }
+        public DateTime Timestamp { get; set; }
+
+        public Category Category { get; set; }
+
+        public Location Location { get; set; }
+
+        public Source Source { get; set; }
+
+        public string Description { get; set; }
+
+        public decimal Amount { get; set; }
+
+        public string Currency { get; set; }
     }
 }

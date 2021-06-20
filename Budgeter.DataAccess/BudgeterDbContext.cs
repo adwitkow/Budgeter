@@ -14,17 +14,30 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using System.Xml.Serialization;
+using Budgeter.Core.Model;
+using Microsoft.EntityFrameworkCore;
 
-namespace Budgeter.Core.Data.XmlData.PKO
+namespace Budgeter.DataAccess
 {
-    [XmlRoot(ElementName = "ending-balance")]
-    public class EndingBalance
+    public class BudgeterDbContext : DbContext
     {
-        [XmlAttribute(AttributeName = "curr")]
-        public string Currency { get; set; }
+        public BudgeterDbContext()
+        {
+            this.Database.EnsureCreated();
+        }
 
-        [XmlText]
-        public decimal Text { get; set; }
+        public DbSet<Cashflow> Cashflows { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Location> Locations { get; set; }
+
+        public DbSet<Source> Sources { get; set; }
+
+        /// <inheritdoc/>
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite(@"Data Source=budgeter.db");
+        }
     }
 }

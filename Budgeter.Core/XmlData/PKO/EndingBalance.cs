@@ -14,19 +14,17 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Budgeter.Core.Data.XmlData.PKO
+namespace Budgeter.Core.XmlData.PKO
 {
-    [XmlRoot(ElementName = "account-history")]
-    public class AccountHistory
+    [XmlRoot(ElementName = "ending-balance")]
+    public class EndingBalance
     {
-        [XmlElement(ElementName = "search")]
-        public Search SearchFilter { get; set; }
+        [XmlAttribute(AttributeName = "curr")]
+        public string Currency { get; set; }
 
-        [XmlArray(ElementName = "operations")]
-        [XmlArrayItem(ElementName = "operation")]
-        public List<PkoOperation> Operations { get; set; }
+        [XmlText]
+        public decimal Text { get; set; }
     }
 }

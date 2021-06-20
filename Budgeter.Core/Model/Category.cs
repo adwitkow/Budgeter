@@ -14,30 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using Budgeter.Core.Data.Entities;
-using Microsoft.EntityFrameworkCore;
-
-namespace Budgeter.Core.Data
+namespace Budgeter.Core.Model
 {
-    public class BudgeterDbContext : DbContext
+    public class Category
     {
-        public BudgeterDbContext()
-        {
-            this.Database.EnsureCreated();
-        }
-
-        public DbSet<Cashflow> Cashflows { get; set; }
-
-        public DbSet<Category> Categories { get; set; }
-
-        public DbSet<Location> Locations { get; set; }
-
-        public DbSet<Source> Sources { get; set; }
-
-        /// <inheritdoc/>
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlite(@"Data Source=budgeter.db");
-        }
+        public int Id { get; set; }
     }
 }

@@ -14,10 +14,19 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-namespace Budgeter.Core.Data.Entities
+using System.Collections.Generic;
+using System.Xml.Serialization;
+
+namespace Budgeter.Core.XmlData.PKO
 {
-    public class Source
+    [XmlRoot(ElementName = "account-history")]
+    public class AccountHistory
     {
-        public int Id { get; set; }
+        [XmlElement(ElementName = "search")]
+        public Search SearchFilter { get; set; }
+
+        [XmlArray(ElementName = "operations")]
+        [XmlArrayItem(ElementName = "operation")]
+        public List<PkoOperation> Operations { get; set; }
     }
 }

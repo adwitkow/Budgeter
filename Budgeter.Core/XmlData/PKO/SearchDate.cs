@@ -17,27 +17,15 @@
 using System;
 using System.Xml.Serialization;
 
-namespace Budgeter.Core.Data.XmlData.PKO
+namespace Budgeter.Core.XmlData.PKO
 {
-    [XmlRoot(ElementName = "operation")]
-    public class PkoOperation
+    [XmlRoot(ElementName = "date")]
+    public class SearchDate
     {
-        [XmlElement(ElementName = "exec-date")]
-        public DateTime ExecutionDate { get; set; }
+        [XmlAttribute(AttributeName = "since")]
+        public DateTime Since { get; set; }
 
-        [XmlElement(ElementName = "order-date")]
-        public DateTime OrderDate { get; set; }
-
-        [XmlElement(ElementName = "type")]
-        public string Type { get; set; }
-
-        [XmlElement(ElementName = "description")]
-        public string Description { get; set; }
-
-        [XmlElement(ElementName = "amount")]
-        public Amount Amount { get; set; }
-
-        [XmlElement(ElementName = "ending-balance")]
-        public EndingBalance EndingBalance { get; set; }
+        [XmlAttribute(AttributeName = "to")]
+        public DateTime To { get; set; }
     }
 }
