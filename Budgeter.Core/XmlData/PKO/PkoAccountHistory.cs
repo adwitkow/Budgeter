@@ -20,7 +20,7 @@ using System.Xml.Serialization;
 namespace Budgeter.Core.XmlData.PKO
 {
     [XmlRoot(ElementName = "account-history")]
-    public class AccountHistory
+    public class PkoAccountHistory
     {
         [XmlElement(ElementName = "search")]
         public Search SearchFilter { get; set; }
