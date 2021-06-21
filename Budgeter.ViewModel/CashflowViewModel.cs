@@ -102,7 +102,7 @@ namespace Budgeter.ViewModel
             }
         }
 
-        public string Value => $"{this.Cashflow.Amount} {this.Cashflow.Currency}";
+        public string Value => $"{this.Cashflow.Amount:0.00} {this.Cashflow.Currency}";
 
         public decimal Amount
         {

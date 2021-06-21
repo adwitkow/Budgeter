@@ -29,7 +29,7 @@ namespace Budgeter.WinForms
 
             this.mainViewModel = mainViewModel;
 
-            this.cashflowsDataGridView.DataSource = mainViewModel.Cashflows;
+            this.cashflowViewModelBindingSource.DataSource = mainViewModel.Cashflows;
         }
     }
 }
