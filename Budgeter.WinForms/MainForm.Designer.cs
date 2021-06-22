@@ -179,6 +179,7 @@ namespace Budgeter.WinForms
             // 
             // navigationToolStrip
             // 
+            this.navigationToolStrip.Renderer = new Style.BudgeterToolStripRenderer();
             this.navigationToolStrip.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navigationToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.navigationToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
