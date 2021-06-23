@@ -165,6 +165,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Style\BudgeterColorTable.cs" />
     <Compile Include="Style\BudgeterToolStripRenderer.cs" />
+    <Compile Include="ViewContainer.cs" />
+    <Compile Include="Views\BudgeterView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\BudgeterView.Designer.cs">
+      <DependentUpon>BudgeterView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CashflowView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CashflowView.Designer.cs">
+      <DependentUpon>CashflowView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +196,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\CashflowView.resx">
+      <DependentUpon>CashflowView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
@@ -205,9 +230,9 @@
       <Project>{118685CA-F747-4A69-84E0-B273450D07CD}</Project>
       <Name>Budgeter.DataAccess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Budgeter.ViewModel\Budgeter.ViewModel.csproj">
+    <ProjectReference Include="..\Budgeter.Model\Budgeter.Model.csproj">
       <Project>{6BE6ECC6-91E2-43D4-875D-577C77034F88}</Project>
-      <Name>Budgeter.ViewModel</Name>
+      <Name>Budgeter.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

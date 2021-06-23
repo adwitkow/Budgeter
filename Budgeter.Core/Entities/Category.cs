@@ -14,26 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using System;
-
-namespace Budgeter.Core.Model
+namespace Budgeter.Core.Entities
 {
-    public class Cashflow
+    public class Category
     {
         public int Id { get; set; }
 
-        public DateTime Timestamp { get; set; }
-
-        public Category Category { get; set; }
-
-        public Location Location { get; set; }
-
-        public Source Source { get; set; }
-
-        public string Description { get; set; }
-
-        public decimal Amount { get; set; }
-
-        public string Currency { get; set; }
+        public string Name { get; set; }
     }
 }

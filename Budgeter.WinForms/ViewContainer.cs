@@ -14,28 +14,24 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using System.Collections.ObjectModel;
-using Budgeter.DataAccess;
+using System;
+using Budgeter.WinForms.Views;
 
-namespace Budgeter.ViewModel
+namespace Budgeter.WinForms
 {
-    public class MainViewModel : ViewModelBase
+    public class ViewContainer
     {
-        private readonly BudgeterDataProvider budgeterDataProvider;
+        private readonly IServiceProvider serviceProvider;
 
-        public MainViewModel(BudgeterDataProvider budgeterDataProvider)
+        public ViewContainer(IServiceProvider serviceProvider)
         {
-            this.budgeterDataProvider = budgeterDataProvider;
-
-            this.Cashflows = new ObservableCollection<CashflowViewModel>();
-
-            var cashflowModels = budgeterDataProvider.GetCashflows();
-            foreach (var cashflow in cashflowModels)
-            {
-                this.Cashflows.Add(new CashflowViewModel(cashflow));
-            }
+            this.serviceProvider = serviceProvider;
         }
 
-        public ObservableCollection<CashflowViewModel> Cashflows { get; }
+        public BudgeterView RequestView<T>()
+            where T : BudgeterView
+        {
+            return (BudgeterView)this.serviceProvider.GetService(typeof(T));
+        }
     }
 }

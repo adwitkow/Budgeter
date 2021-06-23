@@ -14,24 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using System.Collections.Generic;
-using System.Linq;
-using Budgeter.Core.Entities;
-
-namespace Budgeter.DataAccess
+namespace Budgeter.Core.Entities
 {
-    public class BudgeterDataProvider
+    public class Source
     {
-        private readonly BudgeterDbContext dbContext;
+        public int Id { get; set; }
 
-        public BudgeterDataProvider(BudgeterDbContext dbContext)
-        {
-            this.dbContext = dbContext;
-        }
-
-        public IEnumerable<Cashflow> GetCashflows()
-        {
-            return this.dbContext.Cashflows.ToList();
-        }
+        public string Name { get; set; }
     }
 }

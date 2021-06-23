@@ -29,16 +29,7 @@ namespace Budgeter.WinForms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.cashflowsDataGridView = new System.Windows.Forms.DataGridView();
-            this.timestampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locationNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sourceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cashflowViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainToolStripContainer = new System.Windows.Forms.ToolStripContainer();
             this.bottomStatusStrip = new System.Windows.Forms.StatusStrip();
             this.navigationToolStrip = new System.Windows.Forms.ToolStrip();
@@ -49,8 +40,7 @@ namespace Budgeter.WinForms
             this.storesToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.budgetsToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.topMenuStrip = new System.Windows.Forms.MenuStrip();
-            ((System.ComponentModel.ISupportInitialize)(this.cashflowsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cashflowViewModelBindingSource)).BeginInit();
+            this.contentPanel = new System.Windows.Forms.Panel();
             this.mainToolStripContainer.BottomToolStripPanel.SuspendLayout();
             this.mainToolStripContainer.ContentPanel.SuspendLayout();
             this.mainToolStripContainer.LeftToolStripPanel.SuspendLayout();
@@ -58,90 +48,6 @@ namespace Budgeter.WinForms
             this.mainToolStripContainer.SuspendLayout();
             this.navigationToolStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cashflowsDataGridView
-            // 
-            this.cashflowsDataGridView.AllowUserToAddRows = false;
-            this.cashflowsDataGridView.AllowUserToDeleteRows = false;
-            this.cashflowsDataGridView.AllowUserToResizeRows = false;
-            this.cashflowsDataGridView.AutoGenerateColumns = false;
-            this.cashflowsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cashflowsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.timestampDataGridViewTextBoxColumn,
-            this.categoryNameDataGridViewTextBoxColumn,
-            this.locationNameDataGridViewTextBoxColumn,
-            this.sourceNameDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.valueDataGridViewTextBoxColumn});
-            this.cashflowsDataGridView.DataSource = this.cashflowViewModelBindingSource;
-            this.cashflowsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cashflowsDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.cashflowsDataGridView.Name = "cashflowsDataGridView";
-            this.cashflowsDataGridView.ReadOnly = true;
-            this.cashflowsDataGridView.RowHeadersVisible = false;
-            this.cashflowsDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            this.cashflowsDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cashflowsDataGridView.RowTemplate.Height = 16;
-            this.cashflowsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.cashflowsDataGridView.Size = new System.Drawing.Size(723, 404);
-            this.cashflowsDataGridView.TabIndex = 0;
-            // 
-            // timestampDataGridViewTextBoxColumn
-            // 
-            this.timestampDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.timestampDataGridViewTextBoxColumn.DataPropertyName = "Timestamp";
-            this.timestampDataGridViewTextBoxColumn.HeaderText = "Timestamp";
-            this.timestampDataGridViewTextBoxColumn.Name = "timestampDataGridViewTextBoxColumn";
-            this.timestampDataGridViewTextBoxColumn.ReadOnly = true;
-            this.timestampDataGridViewTextBoxColumn.Width = 83;
-            // 
-            // categoryNameDataGridViewTextBoxColumn
-            // 
-            this.categoryNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
-            this.categoryNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.categoryNameDataGridViewTextBoxColumn.Width = 74;
-            // 
-            // locationNameDataGridViewTextBoxColumn
-            // 
-            this.locationNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.locationNameDataGridViewTextBoxColumn.DataPropertyName = "LocationName";
-            this.locationNameDataGridViewTextBoxColumn.HeaderText = "Location";
-            this.locationNameDataGridViewTextBoxColumn.Name = "locationNameDataGridViewTextBoxColumn";
-            this.locationNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.locationNameDataGridViewTextBoxColumn.Width = 73;
-            // 
-            // sourceNameDataGridViewTextBoxColumn
-            // 
-            this.sourceNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.sourceNameDataGridViewTextBoxColumn.DataPropertyName = "SourceName";
-            this.sourceNameDataGridViewTextBoxColumn.HeaderText = "Source";
-            this.sourceNameDataGridViewTextBoxColumn.Name = "sourceNameDataGridViewTextBoxColumn";
-            this.sourceNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sourceNameDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // valueDataGridViewTextBoxColumn
-            // 
-            this.valueDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
-            this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
-            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
-            this.valueDataGridViewTextBoxColumn.ReadOnly = true;
-            this.valueDataGridViewTextBoxColumn.Width = 59;
-            // 
-            // cashflowViewModelBindingSource
-            // 
-            this.cashflowViewModelBindingSource.DataSource = typeof(Budgeter.ViewModel.CashflowViewModel);
             // 
             // mainToolStripContainer
             // 
@@ -152,7 +58,7 @@ namespace Budgeter.WinForms
             // 
             // mainToolStripContainer.ContentPanel
             // 
-            this.mainToolStripContainer.ContentPanel.Controls.Add(this.cashflowsDataGridView);
+            this.mainToolStripContainer.ContentPanel.Controls.Add(this.contentPanel);
             this.mainToolStripContainer.ContentPanel.Size = new System.Drawing.Size(723, 404);
             this.mainToolStripContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             // 
@@ -190,7 +96,7 @@ namespace Budgeter.WinForms
             this.budgetsToolStripButton});
             this.navigationToolStrip.Location = new System.Drawing.Point(0, 3);
             this.navigationToolStrip.Name = "navigationToolStrip";
-            this.navigationToolStrip.Size = new System.Drawing.Size(77, 249);
+            this.navigationToolStrip.Size = new System.Drawing.Size(77, 230);
             this.navigationToolStrip.TabIndex = 1;
             // 
             // overviewToolStripButton
@@ -201,6 +107,7 @@ namespace Budgeter.WinForms
             this.overviewToolStripButton.Size = new System.Drawing.Size(75, 35);
             this.overviewToolStripButton.Text = "Overview";
             this.overviewToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.overviewToolStripButton.Click += new System.EventHandler(this.OverviewToolStripButton_Click);
             // 
             // transactionsToolStripButton
             // 
@@ -210,6 +117,7 @@ namespace Budgeter.WinForms
             this.transactionsToolStripButton.Size = new System.Drawing.Size(75, 35);
             this.transactionsToolStripButton.Text = "Transactions";
             this.transactionsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.transactionsToolStripButton.Click += new System.EventHandler(this.TransactionsToolStripButton_Click);
             // 
             // accountsToolStripButton
             // 
@@ -256,6 +164,15 @@ namespace Budgeter.WinForms
             this.topMenuStrip.TabIndex = 0;
             this.topMenuStrip.Text = "menuStrip1";
             // 
+            // contentPanel
+            // 
+            this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contentPanel.Location = new System.Drawing.Point(0, 0);
+            this.contentPanel.Name = "contentPanel";
+            this.contentPanel.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.contentPanel.Size = new System.Drawing.Size(723, 404);
+            this.contentPanel.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,8 +182,6 @@ namespace Budgeter.WinForms
             this.MainMenuStrip = this.topMenuStrip;
             this.Name = "MainForm";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.cashflowsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cashflowViewModelBindingSource)).EndInit();
             this.mainToolStripContainer.BottomToolStripPanel.ResumeLayout(false);
             this.mainToolStripContainer.BottomToolStripPanel.PerformLayout();
             this.mainToolStripContainer.ContentPanel.ResumeLayout(false);
@@ -283,15 +198,6 @@ namespace Budgeter.WinForms
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView cashflowsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timestampDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn locationNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sourceNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource cashflowViewModelBindingSource;
         private System.Windows.Forms.ToolStripContainer mainToolStripContainer;
         private System.Windows.Forms.StatusStrip bottomStatusStrip;
         private System.Windows.Forms.ToolStrip navigationToolStrip;
@@ -302,6 +208,7 @@ namespace Budgeter.WinForms
         private System.Windows.Forms.ToolStripButton storesToolStripButton;
         private System.Windows.Forms.ToolStripButton budgetsToolStripButton;
         private System.Windows.Forms.MenuStrip topMenuStrip;
+        private System.Windows.Forms.Panel contentPanel;
     }
 }
 

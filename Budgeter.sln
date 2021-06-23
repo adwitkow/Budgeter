@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Budgeter.DataAccess", "Budgeter.DataAccess\Budgeter.DataAccess.csproj", "{118685CA-F747-4A69-84E0-B273450D07CD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Budgeter.ViewModel", "Budgeter.ViewModel\Budgeter.ViewModel.csproj", "{6BE6ECC6-91E2-43D4-875D-577C77034F88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Budgeter.Model", "Budgeter.Model\Budgeter.Model.csproj", "{6BE6ECC6-91E2-43D4-875D-577C77034F88}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B0F4A419-B4DE-4CE3-BBD1-997B22A476E6}"
 EndProject

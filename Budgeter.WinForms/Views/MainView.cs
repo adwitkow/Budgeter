@@ -14,12 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-namespace Budgeter.Core.Model
+namespace Budgeter.WinForms.Views
 {
-    public class Category
+    public partial class MainView
     {
-        public int Id { get; set; }
-
-        public string Name { get; set; }
+        public MainView()
+        {
+            this.InitializeComponent();
+        }
     }
 }

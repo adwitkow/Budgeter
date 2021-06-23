@@ -14,24 +14,34 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using System.Collections.Generic;
-using System.Linq;
-using Budgeter.Core.Entities;
+using System.Collections.ObjectModel;
+using Budgeter.DataAccess;
+using Budgeter.Model.Models;
 
-namespace Budgeter.DataAccess
+namespace Budgeter.Model.ViewModels
 {
-    public class BudgeterDataProvider
+    public class MainViewModel : ViewModelBase
     {
-        private readonly BudgeterDbContext dbContext;
+        private readonly BudgeterDataProvider budgeterDataProvider;
 
-        public BudgeterDataProvider(BudgeterDbContext dbContext)
+        public MainViewModel(BudgeterDataProvider budgeterDataProvider)
         {
-            this.dbContext = dbContext;
+            this.Cashflows = new ObservableCollection<CashflowModel>();
+
+            this.budgeterDataProvider = budgeterDataProvider;
         }
 
-        public IEnumerable<Cashflow> GetCashflows()
+        public ObservableCollection<CashflowModel> Cashflows { get; }
+
+        public void Load()
         {
-            return this.dbContext.Cashflows.ToList();
+            this.Cashflows.Clear();
+
+            var cashflowModels = this.budgeterDataProvider.GetCashflows();
+            foreach (var cashflow in cashflowModels)
+            {
+                this.Cashflows.Add(new CashflowModel(cashflow));
+            }
         }
     }
 }

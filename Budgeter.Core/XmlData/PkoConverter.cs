@@ -16,7 +16,7 @@
 
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Budgeter.Core.Model;
+using Budgeter.Core.Entities;
 using Budgeter.Core.XmlData.PKO;
 
 namespace Budgeter.Core.XmlData

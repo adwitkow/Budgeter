@@ -15,13 +15,13 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
-using Budgeter.Core.Model;
+using Budgeter.Core.Entities;
 
-namespace Budgeter.ViewModel
+namespace Budgeter.Model.Models
 {
-    public class CashflowViewModel : ViewModelBase
+    public class CashflowModel : ViewModelBase
     {
-        public CashflowViewModel(Cashflow cashflow)
+        public CashflowModel(Cashflow cashflow)
         {
             this.Cashflow = cashflow;
         }
