@@ -27,8 +27,9 @@ namespace Budgeter.WinForms
         {
             this.InitializeComponent();
 
-            this.mainViewModel = mainViewModel;
+            this.navigationToolStrip.Renderer = new Style.BudgeterToolStripRenderer();
 
+            this.mainViewModel = mainViewModel;
             this.cashflowViewModelBindingSource.DataSource = mainViewModel.Cashflows;
         }
     }

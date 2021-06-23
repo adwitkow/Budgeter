@@ -42,13 +42,13 @@ namespace Budgeter.WinForms
             this.mainToolStripContainer = new System.Windows.Forms.ToolStripContainer();
             this.bottomStatusStrip = new System.Windows.Forms.StatusStrip();
             this.navigationToolStrip = new System.Windows.Forms.ToolStrip();
-            this.transactionsToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.overviewToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.transactionsToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.accountsToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.topMenuStrip = new System.Windows.Forms.MenuStrip();
             this.categoriesToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.storesToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.budgetsToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.topMenuStrip = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.cashflowsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cashflowViewModelBindingSource)).BeginInit();
             this.mainToolStripContainer.BottomToolStripPanel.SuspendLayout();
@@ -179,8 +179,7 @@ namespace Budgeter.WinForms
             // 
             // navigationToolStrip
             // 
-            this.navigationToolStrip.Renderer = new Style.BudgeterToolStripRenderer();
-            this.navigationToolStrip.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navigationToolStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.navigationToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.navigationToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.overviewToolStripButton,
@@ -189,19 +188,10 @@ namespace Budgeter.WinForms
             this.categoriesToolStripButton,
             this.storesToolStripButton,
             this.budgetsToolStripButton});
-            this.navigationToolStrip.Location = new System.Drawing.Point(0, 8);
+            this.navigationToolStrip.Location = new System.Drawing.Point(0, 3);
             this.navigationToolStrip.Name = "navigationToolStrip";
-            this.navigationToolStrip.Size = new System.Drawing.Size(77, 230);
+            this.navigationToolStrip.Size = new System.Drawing.Size(77, 249);
             this.navigationToolStrip.TabIndex = 1;
-            // 
-            // transactionsToolStripButton
-            // 
-            this.transactionsToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("transactionsToolStripButton.Image")));
-            this.transactionsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.transactionsToolStripButton.Name = "transactionsToolStripButton";
-            this.transactionsToolStripButton.Size = new System.Drawing.Size(75, 35);
-            this.transactionsToolStripButton.Text = "Transactions";
-            this.transactionsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // overviewToolStripButton
             // 
@@ -212,6 +202,15 @@ namespace Budgeter.WinForms
             this.overviewToolStripButton.Text = "Overview";
             this.overviewToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // transactionsToolStripButton
+            // 
+            this.transactionsToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("transactionsToolStripButton.Image")));
+            this.transactionsToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.transactionsToolStripButton.Name = "transactionsToolStripButton";
+            this.transactionsToolStripButton.Size = new System.Drawing.Size(75, 35);
+            this.transactionsToolStripButton.Text = "Transactions";
+            this.transactionsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // accountsToolStripButton
             // 
             this.accountsToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("accountsToolStripButton.Image")));
@@ -220,15 +219,6 @@ namespace Budgeter.WinForms
             this.accountsToolStripButton.Size = new System.Drawing.Size(75, 35);
             this.accountsToolStripButton.Text = "Accounts";
             this.accountsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // topMenuStrip
-            // 
-            this.topMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
-            this.topMenuStrip.Location = new System.Drawing.Point(0, 0);
-            this.topMenuStrip.Name = "topMenuStrip";
-            this.topMenuStrip.Size = new System.Drawing.Size(800, 24);
-            this.topMenuStrip.TabIndex = 0;
-            this.topMenuStrip.Text = "menuStrip1";
             // 
             // categoriesToolStripButton
             // 
@@ -256,6 +246,15 @@ namespace Budgeter.WinForms
             this.budgetsToolStripButton.Size = new System.Drawing.Size(75, 35);
             this.budgetsToolStripButton.Text = "Budgets";
             this.budgetsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // topMenuStrip
+            // 
+            this.topMenuStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.topMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.topMenuStrip.Name = "topMenuStrip";
+            this.topMenuStrip.Size = new System.Drawing.Size(800, 24);
+            this.topMenuStrip.TabIndex = 0;
+            this.topMenuStrip.Text = "menuStrip1";
             // 
             // MainForm
             // 
