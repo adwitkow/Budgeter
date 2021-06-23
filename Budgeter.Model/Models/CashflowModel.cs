@@ -19,70 +19,68 @@ using Budgeter.Core.Entities;
 
 namespace Budgeter.Model.Models
 {
-    public class CashflowModel : ViewModelBase
+    public class CashflowModel : ModelBase<Cashflow>
     {
         public CashflowModel(Cashflow cashflow)
+            : base(cashflow)
         {
-            this.Cashflow = cashflow;
         }
-
-        public Cashflow Cashflow { get; }
 
         public DateTime Timestamp
         {
-            get => this.Cashflow.Timestamp;
+            get => this.BaseEntity.Timestamp;
             set
             {
-                if (this.Cashflow.Timestamp != value)
+                if (this.BaseEntity.Timestamp != value)
                 {
-                    this.Cashflow.Timestamp = value;
+                    this.BaseEntity.Timestamp = value;
                     this.OnPropertyChanged();
                 }
             }
         }
 
-        public string CategoryName => this.Cashflow.Category?.Name;
+        public string CategoryName => this.BaseEntity.Category?.Name;
 
         public Category Category
         {
-            get => this.Cashflow.Category;
+            get => this.BaseEntity.Category;
             set
             {
-                if (this.Cashflow.Category != value)
+                if (this.BaseEntity.Category != value)
                 {
-                    this.Cashflow.Category = value;
+                    this.BaseEntity.Category = value;
                     this.OnPropertyChanged();
                     this.OnPropertyChanged(nameof(this.CategoryName));
                 }
             }
         }
 
-        public string LocationName => this.Cashflow.Location?.Name;
+        public string LocationName => this.BaseEntity.Location?.Name;
 
         public Location Location
         {
-            get => this.Cashflow.Location;
+            get => this.BaseEntity.Location;
             set
             {
-                if (this.Cashflow.Location != value)
+                if (this.BaseEntity.Location != value)
                 {
-                    this.Cashflow.Location = value;
+                    this.BaseEntity.Location = value;
                     this.OnPropertyChanged();
                     this.OnPropertyChanged(nameof(this.LocationName));
                 }
             }
         }
 
-        public string SourceName => this.Cashflow.Source?.Name;
+        public string SourceName => this.BaseEntity.Source?.Name;
 
         public Source Source
         {
-            get => this.Cashflow.Source;
+            get => this.BaseEntity.Source;
             set
             {
-                if (this.Cashflow.Source != value)
+                if (this.BaseEntity.Source != value)
                 {
-                    this.Cashflow.Source = value;
+                    this.BaseEntity.Source = value;
                     this.OnPropertyChanged();
                     this.OnPropertyChanged(nameof(this.SourceName));
                 }
@@ -91,27 +89,27 @@ namespace Budgeter.Model.Models
 
         public string Description
         {
-            get => this.Cashflow.Description;
+            get => this.BaseEntity.Description;
             set
             {
-                if (this.Cashflow.Description != value)
+                if (this.BaseEntity.Description != value)
                 {
-                    this.Cashflow.Description = value;
+                    this.BaseEntity.Description = value;
                     this.OnPropertyChanged();
                 }
             }
         }
 
-        public string Value => $"{this.Cashflow.Amount:0.00} {this.Cashflow.Currency}";
+        public string Value => $"{this.BaseEntity.Amount:0.00} {this.BaseEntity.Currency}";
 
         public decimal Amount
         {
-            get => this.Cashflow.Amount;
+            get => this.BaseEntity.Amount;
             set
             {
-                if (this.Cashflow.Amount != value)
+                if (this.BaseEntity.Amount != value)
                 {
-                    this.Cashflow.Amount = value;
+                    this.BaseEntity.Amount = value;
                     this.OnPropertyChanged();
                     this.OnPropertyChanged(nameof(this.Value));
                 }
@@ -120,12 +118,12 @@ namespace Budgeter.Model.Models
 
         public string Currency
         {
-            get => this.Cashflow.Currency;
+            get => this.BaseEntity.Currency;
             set
             {
-                if (this.Cashflow.Currency != value)
+                if (this.BaseEntity.Currency != value)
                 {
-                    this.Cashflow.Currency = value;
+                    this.BaseEntity.Currency = value;
                     this.OnPropertyChanged();
                     this.OnPropertyChanged(nameof(this.Value));
                 }
