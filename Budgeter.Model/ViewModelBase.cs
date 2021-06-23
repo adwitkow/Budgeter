@@ -19,7 +19,8 @@ using System.Runtime.CompilerServices;
 
 namespace Budgeter.Model
 {
-    public class ViewModelBase : INotifyPropertyChanged
+    // TODO: Is this class really actually needed?
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
         /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
