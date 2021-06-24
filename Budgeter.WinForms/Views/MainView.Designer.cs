@@ -1,7 +1,6 @@
-﻿
-namespace Budgeter.WinForms.Views
+﻿namespace Budgeter.WinForms.Views
 {
-    partial class MainView : BudgeterView
+    partial class MainView
     {
         /// <summary> 
         /// Required designer variable.

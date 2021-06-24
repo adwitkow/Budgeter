@@ -169,9 +169,6 @@
     <Compile Include="Views\BudgeterView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\BudgeterView.Designer.cs">
-      <DependentUpon>BudgeterView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\CashflowView.cs">
       <SubType>UserControl</SubType>
     </Compile>

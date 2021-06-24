@@ -14,11 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using Budgeter.Model.ViewModels;
+
 namespace Budgeter.WinForms.Views
 {
-    public partial class MainView
+    public partial class MainView : BudgeterView<MainViewModel>
     {
-        public MainView()
+        public MainView(MainViewModel viewModel)
+            : base(viewModel)
         {
             this.InitializeComponent();
         }

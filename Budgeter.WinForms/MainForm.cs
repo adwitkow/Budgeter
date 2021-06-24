@@ -15,7 +15,15 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
+using Budgeter.Core.XmlData;
+using Budgeter.Core.XmlData.PKO;
+using Budgeter.DataAccess;
+using Budgeter.Model;
+using Budgeter.Model.ViewModels;
 using Budgeter.WinForms.Views;
 
 namespace Budgeter.WinForms
@@ -23,32 +31,52 @@ namespace Budgeter.WinForms
     public partial class MainForm : Form
     {
         private readonly ViewContainer viewContainer;
+        private readonly BudgeterDataProvider dataProvider;
 
         private BudgeterView currentView;
 
-        public MainForm(ViewContainer viewContainer)
+        public MainForm(ViewContainer viewContainer, BudgeterDataProvider dataProvider)
         {
             this.viewContainer = viewContainer;
-
+            this.dataProvider = dataProvider;
             this.InitializeComponent();
 
             this.navigationToolStrip.Renderer = new Style.BudgeterToolStripRenderer();
 
-            this.SwitchView<MainView>();
+            this.SwitchView<MainView, MainViewModel>();
         }
 
         private void OverviewToolStripButton_Click(object sender, System.EventArgs e)
         {
-            this.SwitchView<MainView>();
+            this.SwitchView<MainView, MainViewModel>();
         }
 
         private void TransactionsToolStripButton_Click(object sender, EventArgs e)
         {
-            this.SwitchView<CashflowView>();
+            this.SwitchView<CashflowView, CashflowViewModel>();
         }
 
-        private void SwitchView<T>()
-            where T : BudgeterView
+        private async void ImportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO: Add implementations for more banks
+            if (this.importOpenFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            var path = this.importOpenFileDialog.FileName;
+            var serializer = new XmlSerializer(typeof(PkoAccountHistory));
+            var history = (PkoAccountHistory)serializer.Deserialize(XmlReader.Create(path));
+
+            var converter = new PkoConverter();
+            var cashflows = converter.Convert(history);
+
+            await this.dataProvider.AddCashflowRangeAsync(cashflows);
+        }
+
+        private void SwitchView<T, TViewModel>()
+            where T : BudgeterView<TViewModel>
+            where TViewModel : ViewModelBase
         {
             if (this.currentView?.GetType() == typeof(T))
             {
@@ -62,10 +90,11 @@ namespace Budgeter.WinForms
                 this.contentPanel.Controls.Remove(oldView);
             }
 
-            var newView = this.viewContainer.RequestView<T>();
+            var newView = this.viewContainer.RequestView<T, TViewModel>();
             this.currentView = newView;
             newView.Dock = DockStyle.Fill;
             this.contentPanel.Controls.Add(newView);
+            newView.OnActivated();
         }
     }
 }

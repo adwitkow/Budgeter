@@ -15,14 +15,32 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Windows.Forms;
+using Budgeter.Model;
 
 namespace Budgeter.WinForms.Views
 {
-    public partial class BudgeterView : UserControl
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:File may only contain a single type", Justification = "The second type is an unbound generic type.")]
+    public class BudgeterView<TViewModel> : BudgeterView
+        where TViewModel : ViewModelBase
     {
-        public BudgeterView()
+        public BudgeterView(TViewModel viewModel)
+            : base()
         {
-            this.InitializeComponent();
+            this.ViewModel = viewModel;
         }
+
+        protected BudgeterView()
+        {
+        }
+
+        protected TViewModel ViewModel { get; }
+
+        public virtual void OnActivated()
+        {
+        }
+    }
+
+    public class BudgeterView : UserControl
+    {
     }
 }

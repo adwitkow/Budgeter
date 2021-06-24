@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
+using Budgeter.Model;
 using Budgeter.WinForms.Views;
 
 namespace Budgeter.WinForms
@@ -28,10 +29,11 @@ namespace Budgeter.WinForms
             this.serviceProvider = serviceProvider;
         }
 
-        public BudgeterView RequestView<T>()
-            where T : BudgeterView
+        public BudgeterView<TViewModel> RequestView<T, TViewModel>()
+            where T : BudgeterView<TViewModel>
+            where TViewModel : ViewModelBase
         {
-            return (BudgeterView)this.serviceProvider.GetService(typeof(T));
+            return (BudgeterView<TViewModel>)this.serviceProvider.GetService(typeof(T));
         }
     }
 }
