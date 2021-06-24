@@ -15,8 +15,9 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using Budgeter.Core.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace Budgeter.DataAccess
 {
@@ -29,9 +30,21 @@ namespace Budgeter.DataAccess
             this.dbContext = dbContext;
         }
 
-        public IEnumerable<Cashflow> GetCashflows()
+        public async Task<IEnumerable<Cashflow>> GetCashflowsAsync()
         {
-            return this.dbContext.Cashflows.ToList();
+            return await this.dbContext.Cashflows.ToListAsync();
+        }
+
+        public async Task<int> AddCashflowAsync(Cashflow cashflow)
+        {
+            this.dbContext.Cashflows.Add(cashflow);
+            return await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<int> AddCashflowRangeAsync(IEnumerable<Cashflow> cashflows)
+        {
+            this.dbContext.Cashflows.AddRange(cashflows);
+            return await this.dbContext.SaveChangesAsync();
         }
     }
 }
