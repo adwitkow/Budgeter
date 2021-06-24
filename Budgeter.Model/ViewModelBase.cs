@@ -16,6 +16,7 @@
 
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace Budgeter.Model
 {
@@ -24,6 +25,8 @@ namespace Budgeter.Model
     {
         /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public abstract Task LoadAsync();
 
         protected void OnPropertyChanged([CallerMemberName]string propertyName = null)
         {

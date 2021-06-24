@@ -14,34 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using System.Collections.ObjectModel;
-using Budgeter.DataAccess;
-using Budgeter.Model.Models;
+using System.Threading.Tasks;
 
 namespace Budgeter.Model.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        private readonly BudgeterDataProvider budgeterDataProvider;
-
-        public MainViewModel(BudgeterDataProvider budgeterDataProvider)
+        public override Task LoadAsync()
         {
-            this.Cashflows = new ObservableCollection<CashflowModel>();
-
-            this.budgeterDataProvider = budgeterDataProvider;
-        }
-
-        public ObservableCollection<CashflowModel> Cashflows { get; }
-
-        public void Load()
-        {
-            this.Cashflows.Clear();
-
-            var cashflowModels = this.budgeterDataProvider.GetCashflows();
-            foreach (var cashflow in cashflowModels)
-            {
-                this.Cashflows.Add(new CashflowModel(cashflow));
-            }
+            return Task.CompletedTask;
         }
     }
 }

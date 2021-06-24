@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Budgeter.DataAccess;
 using Budgeter.Model.Models;
 
@@ -33,11 +34,11 @@ namespace Budgeter.Model.ViewModels
 
         public ObservableCollection<CashflowModel> Cashflows { get; }
 
-        public void Load()
+        public override async Task LoadAsync()
         {
             this.Cashflows.Clear();
 
-            var cashflowModels = this.budgeterDataProvider.GetCashflows();
+            var cashflowModels = await this.budgeterDataProvider.GetCashflowsAsync();
             foreach (var cashflow in cashflowModels)
             {
                 this.Cashflows.Add(new CashflowModel(cashflow));
