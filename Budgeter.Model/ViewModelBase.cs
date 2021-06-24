@@ -20,7 +20,6 @@ using System.Threading.Tasks;
 
 namespace Budgeter.Model
 {
-    // TODO: Is this class really actually needed?
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
         /// <inheritdoc/>
