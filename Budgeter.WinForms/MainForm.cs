@@ -15,15 +15,12 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 using Budgeter.Core.XmlData;
 using Budgeter.Core.XmlData.PKO;
 using Budgeter.DataAccess;
-using Budgeter.Model;
-using Budgeter.Model.ViewModels;
 using Budgeter.WinForms.Views;
 
 namespace Budgeter.WinForms
@@ -43,17 +40,17 @@ namespace Budgeter.WinForms
 
             this.navigationToolStrip.Renderer = new Style.BudgeterToolStripRenderer();
 
-            this.SwitchView<MainView, MainViewModel>();
+            this.SwitchView<MainView>();
         }
 
         private void OverviewToolStripButton_Click(object sender, System.EventArgs e)
         {
-            this.SwitchView<MainView, MainViewModel>();
+            this.SwitchView<MainView>();
         }
 
         private void TransactionsToolStripButton_Click(object sender, EventArgs e)
         {
-            this.SwitchView<CashflowView, CashflowViewModel>();
+            this.SwitchView<CashflowView>();
         }
 
         private async void ImportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,9 +71,8 @@ namespace Budgeter.WinForms
             await this.dataProvider.AddCashflowRangeAsync(cashflows);
         }
 
-        private void SwitchView<T, TViewModel>()
-            where T : BudgeterView<TViewModel>
-            where TViewModel : ViewModelBase
+        private void SwitchView<T>()
+            where T : BudgeterView
         {
             if (this.currentView?.GetType() == typeof(T))
             {
@@ -90,7 +86,7 @@ namespace Budgeter.WinForms
                 this.contentPanel.Controls.Remove(oldView);
             }
 
-            var newView = this.viewContainer.RequestView<T, TViewModel>();
+            var newView = this.viewContainer.RequestView<T>();
             this.currentView = newView;
             newView.Dock = DockStyle.Fill;
             this.contentPanel.Controls.Add(newView);

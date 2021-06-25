@@ -34,13 +34,16 @@ namespace Budgeter.WinForms.Views
         }
 
         protected TViewModel ViewModel { get; }
-
-        public virtual void OnActivated()
-        {
-        }
     }
 
     public class BudgeterView : UserControl
     {
+        protected BudgeterView()
+        {
+        }
+
+        public virtual void OnActivated()
+        {
+        }
     }
 }
