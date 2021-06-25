@@ -14,34 +14,26 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using Budgeter.Model.ViewModels;
+using System;
 
-namespace Budgeter.WinForms.Views
+namespace Budgeter.Core.Entities
 {
-    public partial class CashflowView : BudgeterView<CashflowViewModel>
+    public class Transaction
     {
-        public CashflowView()
-            : base()
-        {
-            this.InitializeComponent();
-        }
+        public int Id { get; set; }
 
-        public CashflowView(CashflowViewModel viewModel)
-            : base(viewModel)
-        {
-            this.InitializeComponent();
-        }
+        public DateTime Timestamp { get; set; }
 
-        public async override void OnActivated()
-        {
-            if (!this.Visible)
-            {
-                return;
-            }
+        public Category Category { get; set; }
 
-            await this.ViewModel.LoadAsync();
+        public Location Location { get; set; }
 
-            this.cashflowViewModelBindingSource.DataSource = this.ViewModel.Cashflows;
-        }
+        public Source Source { get; set; }
+
+        public string Description { get; set; }
+
+        public decimal Amount { get; set; }
+
+        public string Currency { get; set; }
     }
 }

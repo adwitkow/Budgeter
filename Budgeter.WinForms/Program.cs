@@ -51,8 +51,8 @@ namespace Budgeter.WinForms
             services.AddScoped<BudgeterDbContext>();
             services.AddScoped<BudgeterDataProvider>();
             services.AddScoped<ViewContainer>();
-            services.AddScoped<CashflowView>();
-            services.AddScoped<CashflowViewModel>();
+            services.AddScoped<TransactionView>();
+            services.AddScoped<TransactionViewModel>();
             services.AddScoped<MainView>();
             services.AddScoped<MainViewModel>();
             services.AddScoped<AccountsView>();

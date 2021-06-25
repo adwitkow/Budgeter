@@ -14,35 +14,34 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using Budgeter.DataAccess;
-using Budgeter.Model.Models;
+using Budgeter.Model.ViewModels;
 
-namespace Budgeter.Model.ViewModels
+namespace Budgeter.WinForms.Views
 {
-    public class CashflowViewModel : ViewModelBase
+    public partial class TransactionView : BudgeterView<TransactionViewModel>
     {
-        private readonly BudgeterDataProvider budgeterDataProvider;
-
-        public CashflowViewModel(BudgeterDataProvider budgeterDataProvider)
+        public TransactionView()
+            : base()
         {
-            this.Cashflows = new ObservableCollection<CashflowModel>();
-
-            this.budgeterDataProvider = budgeterDataProvider;
+            this.InitializeComponent();
         }
 
-        public ObservableCollection<CashflowModel> Cashflows { get; }
-
-        public override async Task LoadAsync()
+        public TransactionView(TransactionViewModel viewModel)
+            : base(viewModel)
         {
-            this.Cashflows.Clear();
+            this.InitializeComponent();
+        }
 
-            var cashflowModels = await this.budgeterDataProvider.GetCashflowsAsync();
-            foreach (var cashflow in cashflowModels)
+        public async override void OnActivated()
+        {
+            if (!this.Visible)
             {
-                this.Cashflows.Add(new CashflowModel(cashflow));
+                return;
             }
+
+            await this.ViewModel.LoadAsync();
+
+            this.TransactionViewModelBindingSource.DataSource = this.ViewModel.Transactions;
         }
     }
 }

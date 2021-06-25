@@ -30,20 +30,20 @@ namespace Budgeter.DataAccess
             this.dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<Cashflow>> GetCashflowsAsync()
+        public async Task<IEnumerable<Transaction>> GetTransactionsAsync()
         {
-            return await this.dbContext.Cashflows.ToListAsync();
+            return await this.dbContext.Transactions.ToListAsync();
         }
 
-        public async Task<int> AddCashflowAsync(Cashflow cashflow)
+        public async Task<int> AddTransactionAsync(Transaction transaction)
         {
-            this.dbContext.Cashflows.Add(cashflow);
+            this.dbContext.Transactions.Add(transaction);
             return await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task<int> AddCashflowRangeAsync(IEnumerable<Cashflow> cashflows)
+        public async Task<int> AddTransactionRangeAsync(IEnumerable<Transaction> transactions)
         {
-            this.dbContext.Cashflows.AddRange(cashflows);
+            this.dbContext.Transactions.AddRange(transactions);
             return await this.dbContext.SaveChangesAsync();
         }
     }

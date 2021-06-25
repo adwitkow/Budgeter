@@ -26,7 +26,7 @@ namespace Budgeter.DataAccess
             this.Database.EnsureCreated();
         }
 
-        public DbSet<Cashflow> Cashflows { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
         public DbSet<Category> Categories { get; set; }
 

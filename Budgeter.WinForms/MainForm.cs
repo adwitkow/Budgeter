@@ -50,7 +50,7 @@ namespace Budgeter.WinForms
 
         private void TransactionsToolStripButton_Click(object sender, EventArgs e)
         {
-            this.SwitchView<CashflowView>();
+            this.SwitchView<TransactionView>();
         }
 
         private void AccountsToolStripButton_Click(object sender, EventArgs e)
@@ -86,9 +86,9 @@ namespace Budgeter.WinForms
             var history = (PkoAccountHistory)serializer.Deserialize(XmlReader.Create(path));
 
             var converter = new PkoConverter();
-            var cashflows = converter.Convert(history);
+            var transactions = converter.Convert(history);
 
-            await this.dataProvider.AddCashflowRangeAsync(cashflows);
+            await this.dataProvider.AddTransactionRangeAsync(transactions);
         }
 
         private void SwitchView<T>()

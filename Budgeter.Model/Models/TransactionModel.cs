@@ -19,10 +19,10 @@ using Budgeter.Core.Entities;
 
 namespace Budgeter.Model.Models
 {
-    public class CashflowModel : ModelBase<Cashflow>
+    public class TransactionModel : ModelBase<Transaction>
     {
-        public CashflowModel(Cashflow cashflow)
-            : base(cashflow)
+        public TransactionModel(Transaction transaction)
+            : base(transaction)
         {
         }
 

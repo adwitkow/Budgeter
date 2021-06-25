@@ -21,6 +21,6 @@ namespace Budgeter.DataAccess
 {
     public interface IBudgeterDataProvider
     {
-        IEnumerable<Cashflow> GetCashflows();
+        IEnumerable<Transaction> GetTransactions();
     }
 }

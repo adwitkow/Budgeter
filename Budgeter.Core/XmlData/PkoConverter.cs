@@ -28,9 +28,9 @@ namespace Budgeter.Core.XmlData
         private static readonly string TitleGroup = "Title";
         private static readonly Regex AddressRegex = new Regex(@"Adres: (?<Title>.*)$", RegexOptions.Multiline);
 
-        public IEnumerable<Cashflow> Convert(PkoAccountHistory accountHistory)
+        public IEnumerable<Transaction> Convert(PkoAccountHistory accountHistory)
         {
-            var results = new List<Cashflow>();
+            var results = new List<Transaction>();
 
             // TODO: Map accountHistory.Search.Account to identify the source
             foreach (var operation in accountHistory.Operations)
@@ -41,16 +41,16 @@ namespace Budgeter.Core.XmlData
             return results;
         }
 
-        private void ConvertOperation(ICollection<Cashflow> results, PkoOperation operation)
+        private void ConvertOperation(ICollection<Transaction> results, PkoOperation operation)
         {
-            var cashflow = new Cashflow
+            var transaction = new Transaction
             {
                 Timestamp = operation.OrderDate,
 
                 /* TODO:
-                 * cashflow.Category
-                 * cashflow.Location
-                 * cashflow.Source
+                 * Transaction.Category
+                 * Transaction.Location
+                 * Transaction.Source
                  */
 
                 Description = this.ConvertDescription(operation),
@@ -58,7 +58,7 @@ namespace Budgeter.Core.XmlData
                 Currency = operation.Amount.Currency,
             };
 
-            results.Add(cashflow);
+            results.Add(transaction);
         }
 
         private string ConvertDescription(PkoOperation operation)

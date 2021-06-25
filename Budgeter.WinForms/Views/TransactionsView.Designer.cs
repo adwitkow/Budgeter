@@ -1,7 +1,7 @@
 ﻿
 namespace Budgeter.WinForms.Views
 {
-    partial class CashflowView
+    partial class TransactionView
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,44 +30,44 @@ namespace Budgeter.WinForms.Views
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.cashflowsDataGridView = new System.Windows.Forms.DataGridView();
+            this.TransactionsDataGridView = new System.Windows.Forms.DataGridView();
             this.timestampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locationNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sourceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cashflowViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.cashflowsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cashflowViewModelBindingSource)).BeginInit();
+            this.TransactionViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // cashflowsDataGridView
+            // TransactionsDataGridView
             // 
-            this.cashflowsDataGridView.AllowUserToAddRows = false;
-            this.cashflowsDataGridView.AllowUserToDeleteRows = false;
-            this.cashflowsDataGridView.AllowUserToResizeRows = false;
-            this.cashflowsDataGridView.AutoGenerateColumns = false;
-            this.cashflowsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cashflowsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TransactionsDataGridView.AllowUserToAddRows = false;
+            this.TransactionsDataGridView.AllowUserToDeleteRows = false;
+            this.TransactionsDataGridView.AllowUserToResizeRows = false;
+            this.TransactionsDataGridView.AutoGenerateColumns = false;
+            this.TransactionsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TransactionsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.timestampDataGridViewTextBoxColumn,
             this.categoryNameDataGridViewTextBoxColumn,
             this.locationNameDataGridViewTextBoxColumn,
             this.sourceNameDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
             this.valueDataGridViewTextBoxColumn});
-            this.cashflowsDataGridView.DataSource = this.cashflowViewModelBindingSource;
-            this.cashflowsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cashflowsDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.cashflowsDataGridView.Name = "cashflowsDataGridView";
-            this.cashflowsDataGridView.ReadOnly = true;
-            this.cashflowsDataGridView.RowHeadersVisible = false;
-            this.cashflowsDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            this.cashflowsDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cashflowsDataGridView.RowTemplate.Height = 16;
-            this.cashflowsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.cashflowsDataGridView.Size = new System.Drawing.Size(489, 242);
-            this.cashflowsDataGridView.TabIndex = 3;
+            this.TransactionsDataGridView.DataSource = this.TransactionViewModelBindingSource;
+            this.TransactionsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TransactionsDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.TransactionsDataGridView.Name = "TransactionsDataGridView";
+            this.TransactionsDataGridView.ReadOnly = true;
+            this.TransactionsDataGridView.RowHeadersVisible = false;
+            this.TransactionsDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            this.TransactionsDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TransactionsDataGridView.RowTemplate.Height = 16;
+            this.TransactionsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.TransactionsDataGridView.Size = new System.Drawing.Size(489, 242);
+            this.TransactionsDataGridView.TabIndex = 3;
             // 
             // timestampDataGridViewTextBoxColumn
             // 
@@ -122,32 +122,32 @@ namespace Budgeter.WinForms.Views
             this.valueDataGridViewTextBoxColumn.ReadOnly = true;
             this.valueDataGridViewTextBoxColumn.Width = 59;
             // 
-            // cashflowViewModelBindingSource
+            // TransactionViewModelBindingSource
             // 
-            this.cashflowViewModelBindingSource.DataSource = typeof(Budgeter.Model.Models.CashflowModel);
+            this.TransactionViewModelBindingSource.DataSource = typeof(Budgeter.Model.Models.TransactionModel);
             // 
-            // CashflowView
+            // TransactionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.cashflowsDataGridView);
-            this.Name = "CashflowView";
+            this.Controls.Add(this.TransactionsDataGridView);
+            this.Name = "TransactionView";
             this.Size = new System.Drawing.Size(489, 242);
-            ((System.ComponentModel.ISupportInitialize)(this.cashflowsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cashflowViewModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView cashflowsDataGridView;
+        private System.Windows.Forms.DataGridView TransactionsDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn timestampDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn locationNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sourceNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource cashflowViewModelBindingSource;
+        private System.Windows.Forms.BindingSource TransactionViewModelBindingSource;
     }
 }
