@@ -14,10 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using Budgeter.DataAccess;
 using Budgeter.Model.Models;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace Budgeter.Model.ViewModels
 {
