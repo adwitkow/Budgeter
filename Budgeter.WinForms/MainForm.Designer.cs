@@ -127,7 +127,7 @@ namespace Budgeter.WinForms
             this.budgetsToolStripButton});
             this.navigationToolStrip.Location = new System.Drawing.Point(0, 3);
             this.navigationToolStrip.Name = "navigationToolStrip";
-            this.navigationToolStrip.Size = new System.Drawing.Size(77, 230);
+            this.navigationToolStrip.Size = new System.Drawing.Size(77, 249);
             this.navigationToolStrip.TabIndex = 1;
             // 
             // overviewToolStripButton
@@ -158,6 +158,7 @@ namespace Budgeter.WinForms
             this.accountsToolStripButton.Size = new System.Drawing.Size(75, 35);
             this.accountsToolStripButton.Text = "Accounts";
             this.accountsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.accountsToolStripButton.Click += new System.EventHandler(this.AccountsToolStripButton_Click);
             // 
             // categoriesToolStripButton
             // 
@@ -167,6 +168,7 @@ namespace Budgeter.WinForms
             this.categoriesToolStripButton.Size = new System.Drawing.Size(75, 35);
             this.categoriesToolStripButton.Text = "Categories";
             this.categoriesToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.categoriesToolStripButton.Click += new System.EventHandler(this.CategoriesToolStripButton_Click);
             // 
             // storesToolStripButton
             // 
@@ -176,6 +178,7 @@ namespace Budgeter.WinForms
             this.storesToolStripButton.Size = new System.Drawing.Size(75, 35);
             this.storesToolStripButton.Text = "Stores";
             this.storesToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.storesToolStripButton.Click += new System.EventHandler(this.StoresToolStripButton_Click);
             // 
             // budgetsToolStripButton
             // 
@@ -185,6 +188,7 @@ namespace Budgeter.WinForms
             this.budgetsToolStripButton.Size = new System.Drawing.Size(75, 35);
             this.budgetsToolStripButton.Text = "Budgets";
             this.budgetsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.budgetsToolStripButton.Click += new System.EventHandler(this.BudgetsToolStripButton_Click);
             // 
             // topMenuStrip
             // 
@@ -216,32 +220,32 @@ namespace Budgeter.WinForms
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.openToolStripMenuItem.Text = "Open...";
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.ImportToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             // 
             // editToolStripMenuItem

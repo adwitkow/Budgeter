@@ -53,6 +53,26 @@ namespace Budgeter.WinForms
             this.SwitchView<CashflowView>();
         }
 
+        private void AccountsToolStripButton_Click(object sender, EventArgs e)
+        {
+            this.SwitchView<AccountsView>();
+        }
+
+        private void CategoriesToolStripButton_Click(object sender, EventArgs e)
+        {
+            this.SwitchView<CategoriesView>();
+        }
+
+        private void StoresToolStripButton_Click(object sender, EventArgs e)
+        {
+            this.SwitchView<StoresView>();
+        }
+
+        private void BudgetsToolStripButton_Click(object sender, EventArgs e)
+        {
+            this.SwitchView<BudgetsView>();
+        }
+
         private async void ImportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // TODO: Add implementations for more banks

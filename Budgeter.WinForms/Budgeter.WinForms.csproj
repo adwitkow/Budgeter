@@ -175,6 +175,30 @@
     <Compile Include="Views\CashflowView.Designer.cs">
       <DependentUpon>CashflowView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\CategoriesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CategoriesView.Designer.cs">
+      <DependentUpon>CategoriesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StoresView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\StoresView.Designer.cs">
+      <DependentUpon>StoresView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BudgetsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\BudgetsView.Designer.cs">
+      <DependentUpon>BudgetsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccountsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\AccountsView.Designer.cs">
+      <DependentUpon>AccountsView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -195,6 +219,18 @@
     </Compile>
     <EmbeddedResource Include="Views\CashflowView.resx">
       <DependentUpon>CashflowView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CategoriesView.resx">
+      <DependentUpon>CategoriesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StoresView.resx">
+      <DependentUpon>StoresView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BudgetsView.resx">
+      <DependentUpon>BudgetsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AccountsView.resx">
+      <DependentUpon>AccountsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
