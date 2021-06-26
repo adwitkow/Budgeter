@@ -41,7 +41,7 @@ namespace Budgeter.WinForms.Views
 
             await this.ViewModel.LoadAsync();
 
-            this.TransactionViewModelBindingSource.DataSource = this.ViewModel.Transactions;
+            this.transactionModelBindingSource.DataSource = this.ViewModel.Transactions;
         }
     }
 }
