@@ -30,7 +30,8 @@ namespace Budgeter.WinForms.Views
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionView));
             this.transactionsDataGridView = new System.Windows.Forms.DataGridView();
             this.timestampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,8 +40,17 @@ namespace Budgeter.WinForms.Views
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transactionModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.topToolStrip = new System.Windows.Forms.ToolStrip();
+            this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.importToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.transactionsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionModelBindingSource)).BeginInit();
+            this.topToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // transactionsDataGridView
@@ -59,7 +69,7 @@ namespace Budgeter.WinForms.Views
             this.valueDataGridViewTextBoxColumn});
             this.transactionsDataGridView.DataSource = this.transactionModelBindingSource;
             this.transactionsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.transactionsDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.transactionsDataGridView.Location = new System.Drawing.Point(0, 25);
             this.transactionsDataGridView.Name = "transactionsDataGridView";
             this.transactionsDataGridView.ReadOnly = true;
             this.transactionsDataGridView.RowHeadersVisible = false;
@@ -67,7 +77,7 @@ namespace Budgeter.WinForms.Views
             this.transactionsDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.transactionsDataGridView.RowTemplate.Height = 16;
             this.transactionsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.transactionsDataGridView.Size = new System.Drawing.Size(489, 242);
+            this.transactionsDataGridView.Size = new System.Drawing.Size(489, 217);
             this.transactionsDataGridView.TabIndex = 3;
             // 
             // timestampDataGridViewTextBoxColumn
@@ -118,8 +128,8 @@ namespace Budgeter.WinForms.Views
             // 
             this.valueDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.valueDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.valueDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
             this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
             this.valueDataGridViewTextBoxColumn.ReadOnly = true;
@@ -129,16 +139,95 @@ namespace Budgeter.WinForms.Views
             // 
             this.transactionModelBindingSource.DataSource = typeof(Budgeter.Model.Models.TransactionModel);
             // 
+            // topToolStrip
+            // 
+            this.topToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripButton,
+            this.importToolStripButton,
+            this.saveToolStripButton,
+            this.deleteToolStripButton,
+            this.toolStripSeparator,
+            this.copyToolStripButton,
+            this.pasteToolStripButton});
+            this.topToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.topToolStrip.Name = "topToolStrip";
+            this.topToolStrip.Size = new System.Drawing.Size(489, 25);
+            this.topToolStrip.TabIndex = 4;
+            this.topToolStrip.Text = "toolStrip1";
+            // 
+            // newToolStripButton
+            // 
+            this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
+            this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newToolStripButton.Name = "newToolStripButton";
+            this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.newToolStripButton.Text = "&New";
+            // 
+            // importToolStripButton
+            // 
+            this.importToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.importToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("importToolStripButton.Image")));
+            this.importToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.importToolStripButton.Name = "importToolStripButton";
+            this.importToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.importToolStripButton.Text = "&Import";
+            // 
+            // saveToolStripButton
+            // 
+            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
+            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveToolStripButton.Name = "saveToolStripButton";
+            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.saveToolStripButton.Text = "&Save";
+            // 
+            // deleteToolStripButton
+            // 
+            this.deleteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripButton.Image")));
+            this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteToolStripButton.Name = "deleteToolStripButton";
+            this.deleteToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.deleteToolStripButton.Text = "&Save";
+            // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // copyToolStripButton
+            // 
+            this.copyToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.copyToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripButton.Image")));
+            this.copyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.copyToolStripButton.Name = "copyToolStripButton";
+            this.copyToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.copyToolStripButton.Text = "&Copy";
+            // 
+            // pasteToolStripButton
+            // 
+            this.pasteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.pasteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripButton.Image")));
+            this.pasteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.pasteToolStripButton.Name = "pasteToolStripButton";
+            this.pasteToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.pasteToolStripButton.Text = "&Paste";
+            // 
             // TransactionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.transactionsDataGridView);
+            this.Controls.Add(this.topToolStrip);
             this.Name = "TransactionView";
             this.Size = new System.Drawing.Size(489, 242);
             ((System.ComponentModel.ISupportInitialize)(this.transactionsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionModelBindingSource)).EndInit();
+            this.topToolStrip.ResumeLayout(false);
+            this.topToolStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -152,5 +241,13 @@ namespace Budgeter.WinForms.Views
         private System.Windows.Forms.DataGridViewTextBoxColumn sourceNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStrip topToolStrip;
+        private System.Windows.Forms.ToolStripButton newToolStripButton;
+        private System.Windows.Forms.ToolStripButton importToolStripButton;
+        private System.Windows.Forms.ToolStripButton saveToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
+        private System.Windows.Forms.ToolStripButton copyToolStripButton;
+        private System.Windows.Forms.ToolStripButton pasteToolStripButton;
+        private System.Windows.Forms.ToolStripButton deleteToolStripButton;
     }
 }
