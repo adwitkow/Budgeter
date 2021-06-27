@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using Budgeter.Model.Models;
 using Budgeter.Model.ViewModels;
 using Budgeter.WinForms.Forms;
 
@@ -51,7 +52,8 @@ namespace Budgeter.WinForms.Views
 
         private void EditToolStripButton_Click(object sender, System.EventArgs e)
         {
-            using (var editForm = new EditTransactionForm())
+            var current = (TransactionModel)this.transactionModelBindingSource.Current;
+            using (var editForm = new EditTransactionForm(current))
             {
                 editForm.ShowDialog(this.mainForm);
             }

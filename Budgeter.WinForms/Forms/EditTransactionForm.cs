@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Budgeter.Model.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,15 @@ using System.Windows.Forms;
 
 namespace Budgeter.WinForms.Forms
 {
-    public partial class EditTransactionForm : Form
+    public partial class EditTransactionForm : EditFormBase<TransactionModel>
     {
         public EditTransactionForm()
+        {
+            this.InitializeComponent();
+        }
+
+        public EditTransactionForm(TransactionModel model)
+            : base(model)
         {
             this.InitializeComponent();
         }
