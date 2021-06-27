@@ -96,6 +96,7 @@ namespace Budgeter.Model.Models
                 {
                     this.BaseEntity.Description = value;
                     this.OnPropertyChanged();
+                    this.OnPropertyChanged(nameof(this.CanSave));
                 }
             }
         }
@@ -112,6 +113,7 @@ namespace Budgeter.Model.Models
                     this.BaseEntity.Amount = value;
                     this.OnPropertyChanged();
                     this.OnPropertyChanged(nameof(this.Value));
+                    this.OnPropertyChanged(nameof(this.CanSave));
                 }
             }
         }
@@ -126,9 +128,12 @@ namespace Budgeter.Model.Models
                     this.BaseEntity.Currency = value;
                     this.OnPropertyChanged();
                     this.OnPropertyChanged(nameof(this.Value));
+                    this.OnPropertyChanged(nameof(this.CanSave));
                 }
             }
         }
+
+        public override bool CanSave => this.Amount != 0 && !string.IsNullOrWhiteSpace(this.Description) && !string.IsNullOrEmpty(this.Currency);
 
         protected override void CopyProperties(Transaction from, Transaction to)
         {

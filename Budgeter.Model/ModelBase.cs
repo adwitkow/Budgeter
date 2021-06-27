@@ -30,6 +30,8 @@ namespace Budgeter.Model
         /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public abstract bool CanSave { get; }
+
         public T BaseEntity { get; }
 
         protected T BackupEntity { get; set; }

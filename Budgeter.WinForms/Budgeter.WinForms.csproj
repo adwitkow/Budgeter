@@ -234,6 +234,7 @@
     </Compile>
     <EmbeddedResource Include="Forms\EditFormBase.resx">
       <DependentUpon>EditFormBase.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditTransactionForm.resx">
       <DependentUpon>EditTransactionForm.cs</DependentUpon>
@@ -272,6 +273,7 @@
       <Link>.editorconfig</Link>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Budgeter.Model.Models.TransactionModel.datasource" />
     <None Include="Properties\DataSources\Budgeter.ViewModel.CashflowViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
