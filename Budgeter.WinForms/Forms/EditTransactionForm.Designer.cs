@@ -192,6 +192,7 @@ namespace Budgeter.WinForms.Forms
             // 
             // descriptionTextBox
             // 
+            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.transactionModelBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.descriptionTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.descriptionTextBox.Location = new System.Drawing.Point(79, 75);
             this.descriptionTextBox.Multiline = true;

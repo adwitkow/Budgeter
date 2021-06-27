@@ -22,6 +22,8 @@ namespace Budgeter.WinForms.Forms
             : base(model)
         {
             this.InitializeComponent();
+
+            this.transactionModelBindingSource.DataSource = model;
         }
     }
 }
