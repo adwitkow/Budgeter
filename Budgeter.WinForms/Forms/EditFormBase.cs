@@ -14,9 +14,11 @@ namespace Budgeter.WinForms.Forms
         where T : IEditableObject
     {
         private readonly T editableObject;
+        private bool saving;
 
         public EditFormBase()
         {
+            this.saving = false;
             this.InitializeComponent();
         }
 
@@ -30,8 +32,12 @@ namespace Budgeter.WinForms.Forms
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            this.saving = true;
+
             this.editableObject.EndEdit();
             this.Close();
+
+            this.saving = false;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -42,7 +48,10 @@ namespace Budgeter.WinForms.Forms
 
         private void EditFormBase_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.editableObject.CancelEdit();
+            if (!this.saving)
+            {
+                this.editableObject.CancelEdit();
+            }
         }
     }
 }
