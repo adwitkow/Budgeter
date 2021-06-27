@@ -129,5 +129,16 @@ namespace Budgeter.Model.Models
                 }
             }
         }
+
+        protected override void CopyProperties(Transaction from, Transaction to)
+        {
+            to.Timestamp = from.Timestamp;
+            to.Category = from.Category;
+            to.Location = from.Location;
+            to.Source = from.Source;
+            to.Description = from.Description;
+            to.Amount = from.Amount;
+            to.Currency = from.Currency;
+        }
     }
 }

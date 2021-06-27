@@ -14,12 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace Budgeter.Model
 {
-    public abstract class ModelBase<T> : INotifyPropertyChanged
+    public abstract class ModelBase<T> : INotifyPropertyChanged, IEditableObject
     {
         protected ModelBase(T baseEntity)
         {
@@ -31,9 +32,29 @@ namespace Budgeter.Model
 
         public T BaseEntity { get; }
 
+        protected T BackupEntity { get; set; }
+
+        public void BeginEdit()
+        {
+            this.BackupEntity = (T)Activator.CreateInstance(typeof(T));
+            this.CopyProperties(this.BaseEntity, this.BackupEntity);
+        }
+
+        public void CancelEdit()
+        {
+            this.CopyProperties(this.BackupEntity, this.BaseEntity);
+        }
+
+        public void EndEdit()
+        {
+            this.BackupEntity = (T)Activator.CreateInstance(typeof(T));
+        }
+
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        protected abstract void CopyProperties(T from, T to);
     }
 }
