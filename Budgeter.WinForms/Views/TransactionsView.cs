@@ -20,7 +20,7 @@ using Budgeter.WinForms.Forms;
 
 namespace Budgeter.WinForms.Views
 {
-    public partial class TransactionView : BudgeterView<TransactionViewModel>
+    public partial class TransactionView : BudgeterView<TransactionsViewModel>
     {
         private readonly MainForm mainForm;
 
@@ -30,7 +30,7 @@ namespace Budgeter.WinForms.Views
             this.InitializeComponent();
         }
 
-        public TransactionView(TransactionViewModel viewModel, MainForm mainForm)
+        public TransactionView(TransactionsViewModel viewModel, MainForm mainForm)
             : base(viewModel)
         {
             this.InitializeComponent();

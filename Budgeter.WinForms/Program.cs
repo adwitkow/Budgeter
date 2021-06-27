@@ -52,7 +52,7 @@ namespace Budgeter.WinForms
             services.AddScoped<BudgeterDataProvider>();
             services.AddScoped<ViewContainer>();
             services.AddScoped<TransactionView>();
-            services.AddScoped<TransactionViewModel>();
+            services.AddScoped<TransactionsViewModel>();
             services.AddScoped<MainView>();
             services.AddScoped<MainViewModel>();
             services.AddScoped<AccountsView>();
