@@ -20,6 +20,7 @@ using System.Runtime.CompilerServices;
 
 namespace Budgeter.Model
 {
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:File may only contain a single type", Justification = "Unbound generic type")]
     public abstract class ModelBase<T> : ModelBase
     {
         protected ModelBase(T baseEntity)
@@ -52,7 +53,6 @@ namespace Budgeter.Model
 
     public abstract class ModelBase : INotifyPropertyChanged
     {
-
         /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -68,6 +68,5 @@ namespace Budgeter.Model
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }

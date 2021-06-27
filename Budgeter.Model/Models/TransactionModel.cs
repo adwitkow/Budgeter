@@ -146,7 +146,6 @@ namespace Budgeter.Model.Models
             to.Currency = from.Currency;
 
             // TODO: Check performance on below event calls...
-
             this.OnPropertyChanged(nameof(this.Timestamp));
             this.OnPropertyChanged(nameof(this.Category));
             this.OnPropertyChanged(nameof(this.Location));
