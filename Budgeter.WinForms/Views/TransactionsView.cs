@@ -15,21 +15,25 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using Budgeter.Model.ViewModels;
+using Budgeter.WinForms.Forms;
 
 namespace Budgeter.WinForms.Views
 {
     public partial class TransactionView : BudgeterView<TransactionViewModel>
     {
+        private readonly MainForm mainForm;
+
         public TransactionView()
             : base()
         {
             this.InitializeComponent();
         }
 
-        public TransactionView(TransactionViewModel viewModel)
+        public TransactionView(TransactionViewModel viewModel, MainForm mainForm)
             : base(viewModel)
         {
             this.InitializeComponent();
+            this.mainForm = mainForm;
         }
 
         public async override void OnActivated()
@@ -43,6 +47,14 @@ namespace Budgeter.WinForms.Views
 
             this.transactionModelBindingSource.DataSource = this.ViewModel.Transactions;
             this.transactionModelBindingSource.ResetBindings(false);
+        }
+
+        private void EditToolStripButton_Click(object sender, System.EventArgs e)
+        {
+            using (var editForm = new EditTransactionForm())
+            {
+                editForm.ShowDialog(this.mainForm);
+            }
         }
     }
 }
