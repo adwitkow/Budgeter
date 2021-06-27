@@ -4,7 +4,7 @@
         <name>Budgeter.Model</name>
     </assembly>
     <members>
-        <member name="E:Budgeter.Model.ModelBase`1.PropertyChanged">
+        <member name="E:Budgeter.Model.ModelBase.PropertyChanged">
             <inheritdoc/>
         </member>
         <member name="E:Budgeter.Model.ViewModelBase.PropertyChanged">

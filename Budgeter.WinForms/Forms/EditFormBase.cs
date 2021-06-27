@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Budgeter.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 namespace Budgeter.WinForms.Forms
 {
     public partial class EditFormBase<T> : Form
-        where T : IEditableObject
+        where T : ModelBase
     {
         private readonly T editableObject;
         private bool saving;
