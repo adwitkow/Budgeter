@@ -14,8 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-using Budgeter.Model.ViewModels;
 using System;
+using Budgeter.Model.ViewModels;
 
 namespace Budgeter.WinForms.Forms
 {
@@ -36,11 +36,11 @@ namespace Budgeter.WinForms.Forms
         {
             base.OnShown(e);
 
-            await viewModel.LoadAsync();
+            await this.viewModel.LoadAsync();
 
-            this.categoryBindingSource.DataSource = viewModel.Categories;
-            this.locationBindingSource.DataSource = viewModel.Locations;
-            this.sourceBindingSource.DataSource = viewModel.Sources;
+            this.categoryBindingSource.DataSource = this.viewModel.Categories;
+            this.locationBindingSource.DataSource = this.viewModel.Locations;
+            this.sourceBindingSource.DataSource = this.viewModel.Sources;
         }
     }
 }
