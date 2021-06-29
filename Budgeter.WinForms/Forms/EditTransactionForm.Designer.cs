@@ -210,6 +210,7 @@ namespace Budgeter.WinForms.Forms
             // 
             // amountTextBox
             // 
+            this.amountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.transactionModelBindingSource, "Amount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.amountTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.amountTextBox.Location = new System.Drawing.Point(0, 0);
             this.amountTextBox.Name = "amountTextBox";
