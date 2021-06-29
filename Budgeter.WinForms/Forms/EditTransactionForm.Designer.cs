@@ -33,6 +33,7 @@ namespace Budgeter.WinForms.Forms
             this.transactionGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.sourceComboBox = new System.Windows.Forms.ComboBox();
+            this.editTransactionViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.locationComboBox = new System.Windows.Forms.ComboBox();
             this.categoryLabel = new System.Windows.Forms.Label();
             this.locationLabel = new System.Windows.Forms.Label();
@@ -44,22 +45,27 @@ namespace Budgeter.WinForms.Forms
             this.valuePanel = new System.Windows.Forms.Panel();
             this.amountTextBox = new System.Windows.Forms.TextBox();
             this.currencyComboBox = new System.Windows.Forms.ComboBox();
-            this.editTransactionViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.locationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bottomButtonPanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.transactionGroupBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.valuePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editTransactionViewModelBindingSource)).BeginInit();
+            this.valuePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sourceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(189, 11);
+            this.saveButton.Location = new System.Drawing.Point(108, 11);
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(127, 11);
+            this.cancelButton.Location = new System.Drawing.Point(46, 11);
             // 
             // bottomButtonPanel
             // 
@@ -113,23 +119,31 @@ namespace Budgeter.WinForms.Forms
             // 
             // sourceComboBox
             // 
-            this.sourceComboBox.DataSource = this.editTransactionViewModelBindingSource;
+            this.sourceComboBox.DataSource = this.sourceBindingSource;
+            this.sourceComboBox.DisplayMember = "Name";
             this.sourceComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sourceComboBox.FormattingEnabled = true;
             this.sourceComboBox.Location = new System.Drawing.Point(79, 51);
             this.sourceComboBox.Name = "sourceComboBox";
             this.sourceComboBox.Size = new System.Drawing.Size(172, 21);
             this.sourceComboBox.TabIndex = 7;
+            this.sourceComboBox.ValueMember = "Id";
+            // 
+            // editTransactionViewModelBindingSource
+            // 
+            this.editTransactionViewModelBindingSource.DataSource = typeof(Budgeter.Model.ViewModels.EditTransactionViewModel);
             // 
             // locationComboBox
             // 
-            this.locationComboBox.DataSource = this.editTransactionViewModelBindingSource;
+            this.locationComboBox.DataSource = this.locationBindingSource;
+            this.locationComboBox.DisplayMember = "Name";
             this.locationComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.locationComboBox.FormattingEnabled = true;
             this.locationComboBox.Location = new System.Drawing.Point(79, 27);
             this.locationComboBox.Name = "locationComboBox";
             this.locationComboBox.Size = new System.Drawing.Size(172, 21);
             this.locationComboBox.TabIndex = 6;
+            this.locationComboBox.ValueMember = "Id";
             // 
             // categoryLabel
             // 
@@ -188,12 +202,15 @@ namespace Budgeter.WinForms.Forms
             // 
             // categoryComboBox
             // 
+            this.categoryComboBox.DataSource = this.categoryBindingSource;
+            this.categoryComboBox.DisplayMember = "Name";
             this.categoryComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Location = new System.Drawing.Point(79, 3);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(172, 21);
             this.categoryComboBox.TabIndex = 5;
+            this.categoryComboBox.ValueMember = "Id";
             // 
             // descriptionTextBox
             // 
@@ -236,9 +253,17 @@ namespace Budgeter.WinForms.Forms
             this.currencyComboBox.TabIndex = 10;
             this.currencyComboBox.Text = "PLN";
             // 
-            // editTransactionViewModelBindingSource
+            // sourceBindingSource
             // 
-            this.editTransactionViewModelBindingSource.DataSource = typeof(Budgeter.Model.ViewModels.EditTransactionViewModel);
+            this.sourceBindingSource.DataSource = typeof(Budgeter.Core.Entities.Source);
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(Budgeter.Core.Entities.Category);
+            // 
+            // locationBindingSource
+            // 
+            this.locationBindingSource.DataSource = typeof(Budgeter.Core.Entities.Location);
             // 
             // EditTransactionForm
             // 
@@ -253,9 +278,12 @@ namespace Budgeter.WinForms.Forms
             this.transactionGroupBox.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.editTransactionViewModelBindingSource)).EndInit();
             this.valuePanel.ResumeLayout(false);
             this.valuePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.editTransactionViewModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sourceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -276,5 +304,8 @@ namespace Budgeter.WinForms.Forms
         private System.Windows.Forms.Panel valuePanel;
         private System.Windows.Forms.ComboBox currencyComboBox;
         private System.Windows.Forms.BindingSource editTransactionViewModelBindingSource;
+        private System.Windows.Forms.BindingSource sourceBindingSource;
+        private System.Windows.Forms.BindingSource locationBindingSource;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
     }
 }

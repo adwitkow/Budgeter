@@ -42,14 +42,8 @@ namespace Budgeter.WinForms.Forms
         public virtual void ShowFor(IWin32Window owner, object model)
         {
             this.editableViewModel.BaseEntityObject = model;
-            this.ShowDialog(owner);
-        }
-
-        protected override void OnShown(EventArgs e)
-        {
-            base.OnShown(e);
-
             this.editableViewModel.BeginEdit();
+            this.ShowDialog(owner);
         }
 
         private void SaveButton_Click(object sender, EventArgs e)

@@ -273,6 +273,9 @@
       <Link>.editorconfig</Link>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Budgeter.Core.Entities.Category.datasource" />
+    <None Include="Properties\DataSources\Budgeter.Core.Entities.Location.datasource" />
+    <None Include="Properties\DataSources\Budgeter.Core.Entities.Source.datasource" />
     <None Include="Properties\DataSources\Budgeter.Model.Models.TransactionModel.datasource" />
     <None Include="Properties\DataSources\Budgeter.Model.ViewModels.EditTransactionViewModel.datasource" />
     <None Include="Properties\DataSources\Budgeter.ViewModel.CashflowViewModel.datasource" />
