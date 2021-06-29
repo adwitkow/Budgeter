@@ -28,10 +28,10 @@ namespace Budgeter.WinForms
             this.serviceProvider = serviceProvider;
         }
 
-        public BudgeterView RequestView<T>()
+        public T RequestView<T>()
             where T : BudgeterView
         {
-            return (BudgeterView)this.serviceProvider.GetService(typeof(T));
+            return (T)this.serviceProvider.GetService(typeof(T));
         }
     }
 }

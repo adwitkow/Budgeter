@@ -35,6 +35,26 @@ namespace Budgeter.DataAccess
             return await this.dbContext.Transactions.ToListAsync();
         }
 
+        public async Task<IEnumerable<Category>> GetCategoriesAsync()
+        {
+            return await this.dbContext.Categories.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Location>> GetLocationsAsync()
+        {
+            return await this.dbContext.Locations.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Source>> GetSourcesAsync()
+        {
+            return await this.dbContext.Sources.ToListAsync();
+        }
+
+        public async Task<Transaction> GetTransactionByIdAsync(int id)
+        {
+            return await this.dbContext.Transactions.SingleOrDefaultAsync(t => t.Id == id);
+        }
+
         public async Task<int> AddTransactionAsync(Transaction transaction)
         {
             this.dbContext.Transactions.Add(transaction);
@@ -44,6 +64,24 @@ namespace Budgeter.DataAccess
         public async Task<int> AddTransactionRangeAsync(IEnumerable<Transaction> transactions)
         {
             this.dbContext.Transactions.AddRange(transactions);
+            return await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<int> AddCategoryAsync(Category category)
+        {
+            this.dbContext.Categories.Add(category);
+            return await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<int> AddLocationAsync(Location location)
+        {
+            this.dbContext.Locations.Add(location);
+            return await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<int> AddSourceAsync(Source source)
+        {
+            this.dbContext.Sources.Add(source);
             return await this.dbContext.SaveChangesAsync();
         }
     }

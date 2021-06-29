@@ -21,11 +21,11 @@ using Budgeter.Model.Models;
 
 namespace Budgeter.Model.ViewModels
 {
-    public class TransactionViewModel : ViewModelBase
+    public class TransactionsViewModel : ViewModelBase
     {
         private readonly BudgeterDataProvider budgeterDataProvider;
 
-        public TransactionViewModel(BudgeterDataProvider budgeterDataProvider)
+        public TransactionsViewModel(BudgeterDataProvider budgeterDataProvider)
         {
             this.Transactions = new ObservableCollection<TransactionModel>();
 

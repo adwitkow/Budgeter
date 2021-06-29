@@ -18,6 +18,7 @@ using System;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
+using Budgeter.Core.Entities;
 using Budgeter.Core.XmlData;
 using Budgeter.Core.XmlData.PKO;
 using Budgeter.DataAccess;
@@ -89,6 +90,11 @@ namespace Budgeter.WinForms
             var transactions = converter.Convert(history);
 
             await this.dataProvider.AddTransactionRangeAsync(transactions);
+
+            // TODO: Remove these debug lines
+            await this.dataProvider.AddCategoryAsync(new Category() { Name = "Luxury" });
+            await this.dataProvider.AddLocationAsync(new Location() { Name = "Zabka" });
+            await this.dataProvider.AddSourceAsync(new Source() { Name = "Bank account" });
         }
 
         private void SwitchView<T>()

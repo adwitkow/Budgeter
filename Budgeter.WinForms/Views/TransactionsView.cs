@@ -14,22 +14,29 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using Budgeter.Model.Models;
 using Budgeter.Model.ViewModels;
+using Budgeter.WinForms.Forms;
 
 namespace Budgeter.WinForms.Views
 {
-    public partial class TransactionView : BudgeterView<TransactionViewModel>
+    public partial class TransactionView : BudgeterView<TransactionsViewModel>
     {
+        private readonly MainForm mainForm;
+        private readonly EditTransactionForm editTransactionForm;
+
         public TransactionView()
             : base()
         {
             this.InitializeComponent();
         }
 
-        public TransactionView(TransactionViewModel viewModel)
+        public TransactionView(MainForm mainForm, EditTransactionForm editTransactionForm, TransactionsViewModel viewModel)
             : base(viewModel)
         {
             this.InitializeComponent();
+            this.mainForm = mainForm;
+            this.editTransactionForm = editTransactionForm;
         }
 
         public async override void OnActivated()
@@ -43,6 +50,13 @@ namespace Budgeter.WinForms.Views
 
             this.transactionModelBindingSource.DataSource = this.ViewModel.Transactions;
             this.transactionModelBindingSource.ResetBindings(false);
+        }
+
+        private void EditToolStripButton_Click(object sender, System.EventArgs e)
+        {
+            var current = (TransactionModel)this.transactionModelBindingSource.Current;
+
+            this.editTransactionForm.ShowFor(this.mainForm, current);
         }
     }
 }

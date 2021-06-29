@@ -15,26 +15,32 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using Budgeter.Model.ViewModels;
 
-namespace Budgeter.Model
+namespace Budgeter.WinForms.Forms
 {
-    public abstract class ModelBase<T> : INotifyPropertyChanged
+    public partial class EditTransactionForm : EditFormBase<EditTransactionViewModel>
     {
-        protected ModelBase(T baseEntity)
+        private readonly EditTransactionViewModel viewModel;
+
+        public EditTransactionForm(EditTransactionViewModel viewModel)
+            : base(viewModel)
         {
-            this.BaseEntity = baseEntity;
+            this.InitializeComponent();
+
+            this.editTransactionViewModelBindingSource.DataSource = viewModel;
+            this.viewModel = viewModel;
         }
 
-        /// <inheritdoc/>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public T BaseEntity { get; }
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected async override void OnShown(EventArgs e)
         {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            base.OnShown(e);
+
+            await this.viewModel.LoadAsync();
+
+            this.categoryBindingSource.DataSource = this.viewModel.Categories;
+            this.locationBindingSource.DataSource = this.viewModel.Locations;
+            this.sourceBindingSource.DataSource = this.viewModel.Sources;
         }
     }
 }

@@ -30,16 +30,9 @@ namespace Budgeter.WinForms.Views
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionView));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.transactionsDataGridView = new System.Windows.Forms.DataGridView();
-            this.timestampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locationNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sourceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transactionModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.topToolStrip = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.importToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -48,9 +41,17 @@ namespace Budgeter.WinForms.Views
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.timestampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sourceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transactionModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.transactionsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionModelBindingSource)).BeginInit();
             this.topToolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // transactionsDataGridView
@@ -80,69 +81,11 @@ namespace Budgeter.WinForms.Views
             this.transactionsDataGridView.Size = new System.Drawing.Size(489, 217);
             this.transactionsDataGridView.TabIndex = 3;
             // 
-            // timestampDataGridViewTextBoxColumn
-            // 
-            this.timestampDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.timestampDataGridViewTextBoxColumn.DataPropertyName = "Timestamp";
-            this.timestampDataGridViewTextBoxColumn.HeaderText = "Timestamp";
-            this.timestampDataGridViewTextBoxColumn.Name = "timestampDataGridViewTextBoxColumn";
-            this.timestampDataGridViewTextBoxColumn.ReadOnly = true;
-            this.timestampDataGridViewTextBoxColumn.Width = 83;
-            // 
-            // categoryNameDataGridViewTextBoxColumn
-            // 
-            this.categoryNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
-            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "Category";
-            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
-            this.categoryNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.categoryNameDataGridViewTextBoxColumn.Width = 74;
-            // 
-            // locationNameDataGridViewTextBoxColumn
-            // 
-            this.locationNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.locationNameDataGridViewTextBoxColumn.DataPropertyName = "LocationName";
-            this.locationNameDataGridViewTextBoxColumn.HeaderText = "Location";
-            this.locationNameDataGridViewTextBoxColumn.Name = "locationNameDataGridViewTextBoxColumn";
-            this.locationNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.locationNameDataGridViewTextBoxColumn.Width = 73;
-            // 
-            // sourceNameDataGridViewTextBoxColumn
-            // 
-            this.sourceNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.sourceNameDataGridViewTextBoxColumn.DataPropertyName = "SourceName";
-            this.sourceNameDataGridViewTextBoxColumn.HeaderText = "Source";
-            this.sourceNameDataGridViewTextBoxColumn.Name = "sourceNameDataGridViewTextBoxColumn";
-            this.sourceNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sourceNameDataGridViewTextBoxColumn.Width = 66;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // valueDataGridViewTextBoxColumn
-            // 
-            this.valueDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.valueDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
-            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
-            this.valueDataGridViewTextBoxColumn.ReadOnly = true;
-            this.valueDataGridViewTextBoxColumn.Width = 59;
-            // 
-            // transactionModelBindingSource
-            // 
-            this.transactionModelBindingSource.DataSource = typeof(Budgeter.Model.Models.TransactionModel);
-            // 
             // topToolStrip
             // 
             this.topToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
+            this.editToolStripButton,
             this.importToolStripButton,
             this.saveToolStripButton,
             this.deleteToolStripButton,
@@ -214,6 +157,75 @@ namespace Budgeter.WinForms.Views
             this.pasteToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.pasteToolStripButton.Text = "&Paste";
             // 
+            // editToolStripButton
+            // 
+            this.editToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.editToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripButton.Image")));
+            this.editToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editToolStripButton.Name = "editToolStripButton";
+            this.editToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.editToolStripButton.Text = "&Edit";
+            this.editToolStripButton.Click += new System.EventHandler(this.EditToolStripButton_Click);
+            // 
+            // timestampDataGridViewTextBoxColumn
+            // 
+            this.timestampDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.timestampDataGridViewTextBoxColumn.DataPropertyName = "Timestamp";
+            this.timestampDataGridViewTextBoxColumn.HeaderText = "Timestamp";
+            this.timestampDataGridViewTextBoxColumn.Name = "timestampDataGridViewTextBoxColumn";
+            this.timestampDataGridViewTextBoxColumn.ReadOnly = true;
+            this.timestampDataGridViewTextBoxColumn.Width = 83;
+            // 
+            // categoryNameDataGridViewTextBoxColumn
+            // 
+            this.categoryNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.categoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName";
+            this.categoryNameDataGridViewTextBoxColumn.HeaderText = "Category";
+            this.categoryNameDataGridViewTextBoxColumn.Name = "categoryNameDataGridViewTextBoxColumn";
+            this.categoryNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoryNameDataGridViewTextBoxColumn.Width = 74;
+            // 
+            // locationNameDataGridViewTextBoxColumn
+            // 
+            this.locationNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.locationNameDataGridViewTextBoxColumn.DataPropertyName = "LocationName";
+            this.locationNameDataGridViewTextBoxColumn.HeaderText = "Location";
+            this.locationNameDataGridViewTextBoxColumn.Name = "locationNameDataGridViewTextBoxColumn";
+            this.locationNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.locationNameDataGridViewTextBoxColumn.Width = 73;
+            // 
+            // sourceNameDataGridViewTextBoxColumn
+            // 
+            this.sourceNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.sourceNameDataGridViewTextBoxColumn.DataPropertyName = "SourceName";
+            this.sourceNameDataGridViewTextBoxColumn.HeaderText = "Source";
+            this.sourceNameDataGridViewTextBoxColumn.Name = "sourceNameDataGridViewTextBoxColumn";
+            this.sourceNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sourceNameDataGridViewTextBoxColumn.Width = 66;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // valueDataGridViewTextBoxColumn
+            // 
+            this.valueDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.valueDataGridViewTextBoxColumn.DataPropertyName = "Value";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.valueDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.valueDataGridViewTextBoxColumn.HeaderText = "Value";
+            this.valueDataGridViewTextBoxColumn.Name = "valueDataGridViewTextBoxColumn";
+            this.valueDataGridViewTextBoxColumn.ReadOnly = true;
+            this.valueDataGridViewTextBoxColumn.Width = 59;
+            // 
+            // transactionModelBindingSource
+            // 
+            this.transactionModelBindingSource.DataSource = typeof(Budgeter.Model.Models.TransactionModel);
+            // 
             // TransactionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,9 +235,9 @@ namespace Budgeter.WinForms.Views
             this.Name = "TransactionView";
             this.Size = new System.Drawing.Size(489, 242);
             ((System.ComponentModel.ISupportInitialize)(this.transactionsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionModelBindingSource)).EndInit();
             this.topToolStrip.ResumeLayout(false);
             this.topToolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionModelBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,5 +261,6 @@ namespace Budgeter.WinForms.Views
         private System.Windows.Forms.ToolStripButton copyToolStripButton;
         private System.Windows.Forms.ToolStripButton pasteToolStripButton;
         private System.Windows.Forms.ToolStripButton deleteToolStripButton;
+        private System.Windows.Forms.ToolStripButton editToolStripButton;
     }
 }

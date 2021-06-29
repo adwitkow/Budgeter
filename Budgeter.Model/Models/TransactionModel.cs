@@ -21,6 +21,11 @@ namespace Budgeter.Model.Models
 {
     public class TransactionModel : ModelBase<Transaction>
     {
+        public TransactionModel()
+            : base(new Transaction())
+        {
+        }
+
         public TransactionModel(Transaction transaction)
             : base(transaction)
         {
