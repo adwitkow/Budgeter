@@ -21,6 +21,12 @@ namespace Budgeter.Model.Models
 {
     public class TransactionModel : ModelBase<Transaction>
     {
+        public TransactionModel()
+            : base(new Transaction())
+        {
+
+        }
+
         public TransactionModel(Transaction transaction)
             : base(transaction)
         {
@@ -96,7 +102,6 @@ namespace Budgeter.Model.Models
                 {
                     this.BaseEntity.Description = value;
                     this.OnPropertyChanged();
-                    this.OnPropertyChanged(nameof(this.CanSave));
                 }
             }
         }
@@ -113,7 +118,6 @@ namespace Budgeter.Model.Models
                     this.BaseEntity.Amount = value;
                     this.OnPropertyChanged();
                     this.OnPropertyChanged(nameof(this.Value));
-                    this.OnPropertyChanged(nameof(this.CanSave));
                 }
             }
         }
@@ -128,31 +132,8 @@ namespace Budgeter.Model.Models
                     this.BaseEntity.Currency = value;
                     this.OnPropertyChanged();
                     this.OnPropertyChanged(nameof(this.Value));
-                    this.OnPropertyChanged(nameof(this.CanSave));
                 }
             }
-        }
-
-        public override bool CanSave => this.Amount != 0 && !string.IsNullOrWhiteSpace(this.Description) && !string.IsNullOrEmpty(this.Currency);
-
-        protected override void CopyProperties(Transaction from, Transaction to)
-        {
-            to.Timestamp = from.Timestamp;
-            to.Category = from.Category;
-            to.Location = from.Location;
-            to.Source = from.Source;
-            to.Description = from.Description;
-            to.Amount = from.Amount;
-            to.Currency = from.Currency;
-
-            // TODO: Check performance on below event calls...
-            this.OnPropertyChanged(nameof(this.Timestamp));
-            this.OnPropertyChanged(nameof(this.Category));
-            this.OnPropertyChanged(nameof(this.Location));
-            this.OnPropertyChanged(nameof(this.Source));
-            this.OnPropertyChanged(nameof(this.Description));
-            this.OnPropertyChanged(nameof(this.Amount));
-            this.OnPropertyChanged(nameof(this.Currency));
         }
     }
 }

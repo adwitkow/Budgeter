@@ -23,6 +23,7 @@ namespace Budgeter.WinForms.Views
     public partial class TransactionView : BudgeterView<TransactionsViewModel>
     {
         private readonly MainForm mainForm;
+        private readonly EditTransactionForm editTransactionForm;
 
         public TransactionView()
             : base()
@@ -30,11 +31,12 @@ namespace Budgeter.WinForms.Views
             this.InitializeComponent();
         }
 
-        public TransactionView(TransactionsViewModel viewModel, MainForm mainForm)
+        public TransactionView(MainForm mainForm, EditTransactionForm editTransactionForm, TransactionsViewModel viewModel)
             : base(viewModel)
         {
             this.InitializeComponent();
             this.mainForm = mainForm;
+            this.editTransactionForm = editTransactionForm;
         }
 
         public async override void OnActivated()
@@ -53,10 +55,8 @@ namespace Budgeter.WinForms.Views
         private void EditToolStripButton_Click(object sender, System.EventArgs e)
         {
             var current = (TransactionModel)this.transactionModelBindingSource.Current;
-            using (var editForm = new EditTransactionForm(current))
-            {
-                editForm.ShowDialog(this.mainForm);
-            }
+
+            this.editTransactionForm.ShowFor(this.mainForm, current);
         }
     }
 }

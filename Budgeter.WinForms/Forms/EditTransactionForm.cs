@@ -15,22 +15,19 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using Budgeter.Model.Models;
+using Budgeter.Model.ViewModels;
+using System.Windows.Forms;
 
 namespace Budgeter.WinForms.Forms
 {
-    public partial class EditTransactionForm : EditFormBase<TransactionModel>
+    public partial class EditTransactionForm : EditFormBase<EditTransactionViewModel>
     {
-        public EditTransactionForm()
-        {
-            this.InitializeComponent();
-        }
-
-        public EditTransactionForm(TransactionModel model)
-            : base(model)
+        public EditTransactionForm(EditTransactionViewModel viewModel)
+            : base(viewModel)
         {
             this.InitializeComponent();
 
-            this.transactionModelBindingSource.DataSource = model;
+            this.editTransactionViewModelBindingSource.DataSource = viewModel;
         }
     }
 }

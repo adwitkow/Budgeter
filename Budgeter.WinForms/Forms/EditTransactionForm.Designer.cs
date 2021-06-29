@@ -41,37 +41,36 @@ namespace Budgeter.WinForms.Forms
             this.valueLabel = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
-            this.transactionModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.valuePanel = new System.Windows.Forms.Panel();
             this.amountTextBox = new System.Windows.Forms.TextBox();
             this.currencyComboBox = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.editTransactionViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bottomButtonPanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.transactionGroupBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionModelBindingSource)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.valuePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.editTransactionViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // saveButton
             // 
-            this.saveButton.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", this.transactionModelBindingSource, "CanSave", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.saveButton.Location = new System.Drawing.Point(108, 14);
+            this.saveButton.Location = new System.Drawing.Point(189, 11);
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(46, 14);
+            this.cancelButton.Location = new System.Drawing.Point(127, 11);
             // 
             // bottomButtonPanel
             // 
-            this.bottomButtonPanel.Location = new System.Drawing.Point(0, 156);
-            this.bottomButtonPanel.Size = new System.Drawing.Size(272, 46);
+            this.bottomButtonPanel.Location = new System.Drawing.Point(0, 162);
+            this.bottomButtonPanel.Size = new System.Drawing.Size(272, 40);
             // 
             // mainPanel
             // 
             this.mainPanel.Controls.Add(this.transactionGroupBox);
             this.mainPanel.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.mainPanel.Size = new System.Drawing.Size(272, 156);
+            this.mainPanel.Size = new System.Drawing.Size(272, 162);
             // 
             // transactionGroupBox
             // 
@@ -79,7 +78,7 @@ namespace Budgeter.WinForms.Forms
             this.transactionGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transactionGroupBox.Location = new System.Drawing.Point(6, 0);
             this.transactionGroupBox.Name = "transactionGroupBox";
-            this.transactionGroupBox.Size = new System.Drawing.Size(260, 156);
+            this.transactionGroupBox.Size = new System.Drawing.Size(260, 162);
             this.transactionGroupBox.TabIndex = 0;
             this.transactionGroupBox.TabStop = false;
             this.transactionGroupBox.Text = "Transaction";
@@ -98,7 +97,7 @@ namespace Budgeter.WinForms.Forms
             this.tableLayoutPanel1.Controls.Add(this.valueLabel, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.categoryComboBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.descriptionTextBox, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.valuePanel, 1, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -109,11 +108,12 @@ namespace Budgeter.WinForms.Forms
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(254, 137);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(254, 143);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // sourceComboBox
             // 
+            this.sourceComboBox.DataSource = this.editTransactionViewModelBindingSource;
             this.sourceComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sourceComboBox.FormattingEnabled = true;
             this.sourceComboBox.Location = new System.Drawing.Point(79, 51);
@@ -123,6 +123,7 @@ namespace Budgeter.WinForms.Forms
             // 
             // locationComboBox
             // 
+            this.locationComboBox.DataSource = this.editTransactionViewModelBindingSource;
             this.locationComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.locationComboBox.FormattingEnabled = true;
             this.locationComboBox.Location = new System.Drawing.Point(79, 27);
@@ -169,7 +170,7 @@ namespace Budgeter.WinForms.Forms
             this.descriptionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.descriptionLabel.Location = new System.Drawing.Point(3, 72);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(70, 41);
+            this.descriptionLabel.Size = new System.Drawing.Size(70, 47);
             this.descriptionLabel.TabIndex = 3;
             this.descriptionLabel.Text = "Description:";
             this.descriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -178,7 +179,7 @@ namespace Budgeter.WinForms.Forms
             // 
             this.valueLabel.AutoSize = true;
             this.valueLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.valueLabel.Location = new System.Drawing.Point(3, 113);
+            this.valueLabel.Location = new System.Drawing.Point(3, 119);
             this.valueLabel.Name = "valueLabel";
             this.valueLabel.Size = new System.Drawing.Size(70, 24);
             this.valueLabel.TabIndex = 4;
@@ -196,23 +197,30 @@ namespace Budgeter.WinForms.Forms
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.transactionModelBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.editTransactionViewModelBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.descriptionTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.descriptionTextBox.Location = new System.Drawing.Point(79, 75);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(172, 35);
+            this.descriptionTextBox.Size = new System.Drawing.Size(172, 41);
             this.descriptionTextBox.TabIndex = 8;
             // 
-            // transactionModelBindingSource
+            // valuePanel
             // 
-            this.transactionModelBindingSource.DataSource = typeof(Budgeter.Model.Models.TransactionModel);
+            this.valuePanel.Controls.Add(this.amountTextBox);
+            this.valuePanel.Controls.Add(this.currencyComboBox);
+            this.valuePanel.Location = new System.Drawing.Point(79, 119);
+            this.valuePanel.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.valuePanel.Name = "valuePanel";
+            this.valuePanel.Size = new System.Drawing.Size(172, 18);
+            this.valuePanel.TabIndex = 11;
             // 
             // amountTextBox
             // 
-            this.amountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.transactionModelBindingSource, "Amount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.amountTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.editTransactionViewModelBindingSource, "Amount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.amountTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.amountTextBox.Location = new System.Drawing.Point(0, 0);
+            this.amountTextBox.Margin = new System.Windows.Forms.Padding(0);
             this.amountTextBox.Name = "amountTextBox";
             this.amountTextBox.Size = new System.Drawing.Size(122, 20);
             this.amountTextBox.TabIndex = 9;
@@ -222,19 +230,15 @@ namespace Budgeter.WinForms.Forms
             this.currencyComboBox.Dock = System.Windows.Forms.DockStyle.Right;
             this.currencyComboBox.FormattingEnabled = true;
             this.currencyComboBox.Location = new System.Drawing.Point(122, 0);
+            this.currencyComboBox.Margin = new System.Windows.Forms.Padding(0);
             this.currencyComboBox.Name = "currencyComboBox";
             this.currencyComboBox.Size = new System.Drawing.Size(50, 21);
             this.currencyComboBox.TabIndex = 10;
             this.currencyComboBox.Text = "PLN";
             // 
-            // panel1
+            // editTransactionViewModelBindingSource
             // 
-            this.panel1.Controls.Add(this.amountTextBox);
-            this.panel1.Controls.Add(this.currencyComboBox);
-            this.panel1.Location = new System.Drawing.Point(79, 116);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(172, 18);
-            this.panel1.TabIndex = 11;
+            this.editTransactionViewModelBindingSource.DataSource = typeof(Budgeter.Model.ViewModels.EditTransactionViewModel);
             // 
             // EditTransactionForm
             // 
@@ -249,9 +253,9 @@ namespace Budgeter.WinForms.Forms
             this.transactionGroupBox.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionModelBindingSource)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.valuePanel.ResumeLayout(false);
+            this.valuePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.editTransactionViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -269,8 +273,8 @@ namespace Budgeter.WinForms.Forms
         private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.TextBox amountTextBox;
-        private System.Windows.Forms.BindingSource transactionModelBindingSource;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel valuePanel;
         private System.Windows.Forms.ComboBox currencyComboBox;
+        private System.Windows.Forms.BindingSource editTransactionViewModelBindingSource;
     }
 }

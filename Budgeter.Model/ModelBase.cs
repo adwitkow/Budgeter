@@ -20,49 +20,17 @@ using System.Runtime.CompilerServices;
 
 namespace Budgeter.Model
 {
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:File may only contain a single type", Justification = "Unbound generic type")]
-    public abstract class ModelBase<T> : ModelBase
+    public abstract class ModelBase<T> : INotifyPropertyChanged
     {
+        /// <inheritdoc/>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         protected ModelBase(T baseEntity)
         {
             this.BaseEntity = baseEntity;
         }
 
         public T BaseEntity { get; }
-
-        protected T BackupEntity { get; set; }
-
-        public override void BeginEdit()
-        {
-            this.BackupEntity = (T)Activator.CreateInstance(typeof(T));
-            this.CopyProperties(this.BaseEntity, this.BackupEntity);
-        }
-
-        public override void CancelEdit()
-        {
-            this.CopyProperties(this.BackupEntity, this.BaseEntity);
-        }
-
-        public override void EndEdit()
-        {
-            this.BackupEntity = (T)Activator.CreateInstance(typeof(T));
-        }
-
-        protected abstract void CopyProperties(T from, T to);
-    }
-
-    public abstract class ModelBase : INotifyPropertyChanged
-    {
-        /// <inheritdoc/>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public abstract bool CanSave { get; }
-
-        public abstract void BeginEdit();
-
-        public abstract void CancelEdit();
-
-        public abstract void EndEdit();
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

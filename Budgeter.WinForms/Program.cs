@@ -18,6 +18,7 @@ using System;
 using System.Windows.Forms;
 using Budgeter.DataAccess;
 using Budgeter.Model.ViewModels;
+using Budgeter.WinForms.Forms;
 using Budgeter.WinForms.Views;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -51,6 +52,8 @@ namespace Budgeter.WinForms
             services.AddScoped<BudgeterDbContext>();
             services.AddScoped<BudgeterDataProvider>();
             services.AddScoped<ViewContainer>();
+            services.AddScoped<EditTransactionForm>();
+            services.AddScoped<EditTransactionViewModel>();
             services.AddScoped<TransactionView>();
             services.AddScoped<TransactionsViewModel>();
             services.AddScoped<MainView>();

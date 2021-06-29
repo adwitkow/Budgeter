@@ -17,13 +17,14 @@
 using System;
 using System.Windows.Forms;
 using Budgeter.Model;
+using Budgeter.Model.Models;
 
 namespace Budgeter.WinForms.Forms
 {
     public partial class EditFormBase<T> : Form
-        where T : ModelBase
+        where T : EditableViewModelBase
     {
-        private readonly T editableObject;
+        private readonly T editableViewModel;
         private bool saving;
 
         public EditFormBase()
@@ -32,19 +33,30 @@ namespace Budgeter.WinForms.Forms
             this.InitializeComponent();
         }
 
-        public EditFormBase(T editableObject)
+        public EditFormBase(T editableViewModel)
+            : this()
         {
-            this.editableObject = editableObject;
-            this.editableObject.BeginEdit();
+            this.editableViewModel = editableViewModel;
+        }
 
-            this.InitializeComponent();
+        public virtual void ShowFor(IWin32Window owner, object model)
+        {
+            this.editableViewModel.BaseEntityObject = model;
+            this.ShowDialog(owner);
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            this.editableViewModel.BeginEdit();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
             this.saving = true;
 
-            this.editableObject.EndEdit();
+            this.editableViewModel.EndEdit();
             this.Close();
 
             this.saving = false;
@@ -52,7 +64,7 @@ namespace Budgeter.WinForms.Forms
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.editableObject.CancelEdit();
+            this.editableViewModel.CancelEdit();
             this.Close();
         }
 
@@ -60,7 +72,7 @@ namespace Budgeter.WinForms.Forms
         {
             if (!this.saving)
             {
-                this.editableObject.CancelEdit();
+                this.editableViewModel.CancelEdit();
             }
         }
     }

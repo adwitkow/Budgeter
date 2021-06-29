@@ -274,6 +274,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Budgeter.Model.Models.TransactionModel.datasource" />
+    <None Include="Properties\DataSources\Budgeter.Model.ViewModels.EditTransactionViewModel.datasource" />
     <None Include="Properties\DataSources\Budgeter.ViewModel.CashflowViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
