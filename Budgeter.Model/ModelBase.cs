@@ -22,13 +22,13 @@ namespace Budgeter.Model
 {
     public abstract class ModelBase<T> : INotifyPropertyChanged
     {
-        /// <inheritdoc/>
-        public event PropertyChangedEventHandler PropertyChanged;
-
         protected ModelBase(T baseEntity)
         {
             this.BaseEntity = baseEntity;
         }
+
+        /// <inheritdoc/>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public T BaseEntity { get; }
 

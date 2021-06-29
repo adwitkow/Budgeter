@@ -24,7 +24,6 @@ namespace Budgeter.Model.Models
         public TransactionModel()
             : base(new Transaction())
         {
-
         }
 
         public TransactionModel(Transaction transaction)
