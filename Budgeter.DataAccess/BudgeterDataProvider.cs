@@ -66,5 +66,23 @@ namespace Budgeter.DataAccess
             this.dbContext.Transactions.AddRange(transactions);
             return await this.dbContext.SaveChangesAsync();
         }
+
+        public async Task<int> AddCategoryAsync(Category category)
+        {
+            this.dbContext.Categories.Add(category);
+            return await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<int> AddLocationAsync(Location location)
+        {
+            this.dbContext.Locations.Add(location);
+            return await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task<int> AddSourceAsync(Source source)
+        {
+            this.dbContext.Sources.Add(source);
+            return await this.dbContext.SaveChangesAsync();
+        }
     }
 }
