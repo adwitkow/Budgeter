@@ -14,11 +14,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using System.Windows.Forms;
 using Budgeter.DataAccess;
 using Budgeter.Model.Models;
 using Budgeter.Model.ViewModels;
 using Budgeter.WinForms.Forms;
-using System.Windows.Forms;
 
 namespace Budgeter.WinForms.Views
 {
@@ -34,8 +34,10 @@ namespace Budgeter.WinForms.Views
             this.InitializeComponent();
         }
 
-        public TransactionView(MainForm mainForm, EditTransactionForm editTransactionForm,
-                               TransactionsViewModel viewModel, BudgeterDataProvider budgeterDataProvider)
+        public TransactionView(MainForm mainForm,
+                               EditTransactionForm editTransactionForm,
+                               TransactionsViewModel viewModel,
+                               BudgeterDataProvider budgeterDataProvider)
             : base(viewModel)
         {
             this.InitializeComponent();
