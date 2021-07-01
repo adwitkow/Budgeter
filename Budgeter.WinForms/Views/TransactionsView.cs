@@ -34,10 +34,11 @@ namespace Budgeter.WinForms.Views
             this.InitializeComponent();
         }
 
-        public TransactionView(MainForm mainForm,
-                               EditTransactionForm editTransactionForm,
-                               TransactionsViewModel viewModel,
-                               BudgeterDataProvider budgeterDataProvider)
+        public TransactionView(
+            MainForm mainForm,
+            EditTransactionForm editTransactionForm,
+            TransactionsViewModel viewModel,
+            BudgeterDataProvider budgeterDataProvider)
             : base(viewModel)
         {
             this.InitializeComponent();
