@@ -48,6 +48,7 @@ namespace Budgeter.WinForms.Views
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.pasteToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.importOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.transactionsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transactionModelBindingSource)).BeginInit();
             this.topToolStrip.SuspendLayout();
@@ -182,6 +183,7 @@ namespace Budgeter.WinForms.Views
             this.importToolStripButton.Name = "importToolStripButton";
             this.importToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.importToolStripButton.Text = "&Import";
+            this.importToolStripButton.Click += new System.EventHandler(this.ImportToolStripButton_Click);
             // 
             // deleteToolStripButton
             // 
@@ -215,6 +217,14 @@ namespace Budgeter.WinForms.Views
             this.pasteToolStripButton.Name = "pasteToolStripButton";
             this.pasteToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.pasteToolStripButton.Text = "&Paste";
+            // 
+            // importOpenFileDialog
+            // 
+            this.importOpenFileDialog.FileName = "importOpenFileDialog";
+            this.importOpenFileDialog.Filter = "XML Files|*.xml";
+            this.importOpenFileDialog.Multiselect = true;
+            this.importOpenFileDialog.RestoreDirectory = true;
+            this.importOpenFileDialog.Title = "Select the import file";
             // 
             // TransactionView
             // 
@@ -251,5 +261,6 @@ namespace Budgeter.WinForms.Views
         private System.Windows.Forms.ToolStripButton pasteToolStripButton;
         private System.Windows.Forms.ToolStripButton deleteToolStripButton;
         private System.Windows.Forms.ToolStripButton editToolStripButton;
+        private System.Windows.Forms.OpenFileDialog importOpenFileDialog;
     }
 }

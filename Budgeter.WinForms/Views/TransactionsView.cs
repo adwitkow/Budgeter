@@ -15,6 +15,11 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
+using Budgeter.Core.Entities;
+using Budgeter.Core.XmlData;
+using Budgeter.Core.XmlData.PKO;
 using Budgeter.DataAccess;
 using Budgeter.Model.Models;
 using Budgeter.Model.ViewModels;
@@ -65,6 +70,32 @@ namespace Budgeter.WinForms.Views
             var model = this.GetSelectedTransaction();
 
             this.editTransactionForm.ShowFor(this.mainForm, model);
+        }
+
+        private async void ImportToolStripButton_Click(object sender, System.EventArgs e)
+        {
+            // TODO: Add implementations for more banks
+            if (this.importOpenFileDialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            var path = this.importOpenFileDialog.FileName;
+            var serializer = new XmlSerializer(typeof(PkoAccountHistory));
+            var history = (PkoAccountHistory)serializer.Deserialize(XmlReader.Create(path));
+
+            var converter = new PkoConverter();
+            var transactions = converter.Convert(history);
+
+            await this.budgeterDataProvider.AddTransactionRangeAsync(transactions);
+
+            // TODO: Remove these debug lines
+            await this.budgeterDataProvider.AddCategoryAsync(new Category() { Name = "Utility" });
+            await this.budgeterDataProvider.AddCategoryAsync(new Category() { Name = "Luxury" });
+            await this.budgeterDataProvider.AddLocationAsync(new Location() { Name = "Zabka" });
+            await this.budgeterDataProvider.AddLocationAsync(new Location() { Name = "Auchan" });
+            await this.budgeterDataProvider.AddSourceAsync(new Source() { Name = "Bank account" });
+            await this.budgeterDataProvider.AddSourceAsync(new Source() { Name = "Cash" });
         }
 
         private async void DeleteToolStripButton_Click(object sender, System.EventArgs e)

@@ -16,12 +16,6 @@
 
 using System;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Serialization;
-using Budgeter.Core.Entities;
-using Budgeter.Core.XmlData;
-using Budgeter.Core.XmlData.PKO;
-using Budgeter.DataAccess;
 using Budgeter.WinForms.Views;
 
 namespace Budgeter.WinForms
@@ -29,14 +23,12 @@ namespace Budgeter.WinForms
     public partial class MainForm : Form
     {
         private readonly ViewContainer viewContainer;
-        private readonly BudgeterDataProvider dataProvider;
 
         private BudgeterView currentView;
 
-        public MainForm(ViewContainer viewContainer, BudgeterDataProvider dataProvider)
+        public MainForm(ViewContainer viewContainer)
         {
             this.viewContainer = viewContainer;
-            this.dataProvider = dataProvider;
             this.InitializeComponent();
 
             this.navigationToolStrip.Renderer = new Style.BudgeterToolStripRenderer();
@@ -72,29 +64,6 @@ namespace Budgeter.WinForms
         private void BudgetsToolStripButton_Click(object sender, EventArgs e)
         {
             this.SwitchView<BudgetsView>();
-        }
-
-        private async void ImportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // TODO: Add implementations for more banks
-            if (this.importOpenFileDialog.ShowDialog() != DialogResult.OK)
-            {
-                return;
-            }
-
-            var path = this.importOpenFileDialog.FileName;
-            var serializer = new XmlSerializer(typeof(PkoAccountHistory));
-            var history = (PkoAccountHistory)serializer.Deserialize(XmlReader.Create(path));
-
-            var converter = new PkoConverter();
-            var transactions = converter.Convert(history);
-
-            await this.dataProvider.AddTransactionRangeAsync(transactions);
-
-            // TODO: Remove these debug lines
-            await this.dataProvider.AddCategoryAsync(new Category() { Name = "Luxury" });
-            await this.dataProvider.AddLocationAsync(new Location() { Name = "Zabka" });
-            await this.dataProvider.AddSourceAsync(new Source() { Name = "Bank account" });
         }
 
         private void SwitchView<T>()
