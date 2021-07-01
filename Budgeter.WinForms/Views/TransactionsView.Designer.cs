@@ -44,7 +44,6 @@ namespace Budgeter.WinForms.Views
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.importToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -146,7 +145,6 @@ namespace Budgeter.WinForms.Views
             this.newToolStripButton,
             this.editToolStripButton,
             this.importToolStripButton,
-            this.saveToolStripButton,
             this.deleteToolStripButton,
             this.toolStripSeparator,
             this.copyToolStripButton,
@@ -184,15 +182,6 @@ namespace Budgeter.WinForms.Views
             this.importToolStripButton.Name = "importToolStripButton";
             this.importToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.importToolStripButton.Text = "&Import";
-            // 
-            // saveToolStripButton
-            // 
-            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
-            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.saveToolStripButton.Text = "&Save";
             // 
             // deleteToolStripButton
             // 
@@ -257,7 +246,6 @@ namespace Budgeter.WinForms.Views
         private System.Windows.Forms.ToolStrip topToolStrip;
         private System.Windows.Forms.ToolStripButton newToolStripButton;
         private System.Windows.Forms.ToolStripButton importToolStripButton;
-        private System.Windows.Forms.ToolStripButton saveToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripButton copyToolStripButton;
         private System.Windows.Forms.ToolStripButton pasteToolStripButton;
