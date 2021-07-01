@@ -202,6 +202,7 @@ namespace Budgeter.WinForms.Views
             this.deleteToolStripButton.Name = "deleteToolStripButton";
             this.deleteToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.deleteToolStripButton.Text = "&Delete";
+            this.deleteToolStripButton.Click += new System.EventHandler(this.DeleteToolStripButton_Click);
             // 
             // toolStripSeparator
             // 

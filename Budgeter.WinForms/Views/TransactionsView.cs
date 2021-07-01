@@ -14,9 +14,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using Budgeter.DataAccess;
 using Budgeter.Model.Models;
 using Budgeter.Model.ViewModels;
 using Budgeter.WinForms.Forms;
+using System.Windows.Forms;
 
 namespace Budgeter.WinForms.Views
 {
@@ -24,6 +26,7 @@ namespace Budgeter.WinForms.Views
     {
         private readonly MainForm mainForm;
         private readonly EditTransactionForm editTransactionForm;
+        private readonly BudgeterDataProvider budgeterDataProvider;
 
         public TransactionView()
             : base()
@@ -31,12 +34,14 @@ namespace Budgeter.WinForms.Views
             this.InitializeComponent();
         }
 
-        public TransactionView(MainForm mainForm, EditTransactionForm editTransactionForm, TransactionsViewModel viewModel)
+        public TransactionView(MainForm mainForm, EditTransactionForm editTransactionForm,
+                               TransactionsViewModel viewModel, BudgeterDataProvider budgeterDataProvider)
             : base(viewModel)
         {
             this.InitializeComponent();
             this.mainForm = mainForm;
             this.editTransactionForm = editTransactionForm;
+            this.budgeterDataProvider = budgeterDataProvider;
         }
 
         public async override void OnActivated()
@@ -57,6 +62,21 @@ namespace Budgeter.WinForms.Views
             var current = (TransactionModel)this.transactionModelBindingSource.Current;
 
             this.editTransactionForm.ShowFor(this.mainForm, current);
+        }
+
+        private async void DeleteToolStripButton_Click(object sender, System.EventArgs e)
+        {
+            var current = (TransactionModel)this.transactionModelBindingSource.Current;
+            var button = sender as ToolStripButton;
+
+            var result = MessageBox.Show(this.mainForm, "Are you sure you want to delete this transaction?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                button.Enabled = false;
+                await this.budgeterDataProvider.RemoveTransactionAsync(current.BaseEntity);
+                this.transactionModelBindingSource.Remove(current);
+                button.Enabled = true;
+            }
         }
     }
 }
