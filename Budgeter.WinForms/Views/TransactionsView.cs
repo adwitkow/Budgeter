@@ -59,24 +59,29 @@ namespace Budgeter.WinForms.Views
 
         private void EditToolStripButton_Click(object sender, System.EventArgs e)
         {
-            var current = (TransactionModel)this.transactionModelBindingSource.Current;
+            var model = this.GetSelectedTransaction();
 
-            this.editTransactionForm.ShowFor(this.mainForm, current);
+            this.editTransactionForm.ShowFor(this.mainForm, model);
         }
 
         private async void DeleteToolStripButton_Click(object sender, System.EventArgs e)
         {
-            var current = (TransactionModel)this.transactionModelBindingSource.Current;
+            var model = this.GetSelectedTransaction();
             var button = sender as ToolStripButton;
 
             var result = MessageBox.Show(this.mainForm, "Are you sure you want to delete this transaction?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
                 button.Enabled = false;
-                await this.budgeterDataProvider.RemoveTransactionAsync(current.BaseEntity);
-                this.transactionModelBindingSource.Remove(current);
+                await this.budgeterDataProvider.RemoveTransactionAsync(model.BaseEntity);
+                this.transactionModelBindingSource.Remove(model);
                 button.Enabled = true;
             }
+        }
+
+        private TransactionModel GetSelectedTransaction()
+        {
+            return (TransactionModel)this.transactionModelBindingSource.Current;
         }
     }
 }
