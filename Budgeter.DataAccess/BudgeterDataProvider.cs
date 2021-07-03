@@ -84,5 +84,11 @@ namespace Budgeter.DataAccess
             this.dbContext.Sources.Add(source);
             return await this.dbContext.SaveChangesAsync();
         }
+
+        public async Task<int> RemoveTransactionAsync(Transaction transaction)
+        {
+            this.dbContext.Transactions.Remove(transaction);
+            return await this.dbContext.SaveChangesAsync();
+        }
     }
 }
