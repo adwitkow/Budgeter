@@ -65,6 +65,23 @@ namespace Budgeter.WinForms.Views
             this.transactionModelBindingSource.ResetBindings(false);
         }
 
+        private async void NewToolStripButton_Click(object sender, System.EventArgs e)
+        {
+            var model = new TransactionModel();
+            var button = sender as ToolStripButton;
+
+            this.editTransactionForm.ShowFor(this.mainForm, model);
+
+            if (!model.Equals(new TransactionModel()))
+            {
+                button.Enabled = false;
+                await this.budgeterDataProvider.AddTransactionAsync(model.BaseEntity);
+                this.ViewModel.Transactions.Add(model);
+                this.transactionModelBindingSource.ResetBindings(false);
+                button.Enabled = true;
+            }
+        }
+
         private void EditToolStripButton_Click(object sender, System.EventArgs e)
         {
             var model = this.GetSelectedTransaction();

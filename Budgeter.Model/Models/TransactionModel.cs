@@ -134,5 +134,53 @@ namespace Budgeter.Model.Models
                 }
             }
         }
+
+        public bool Equals(TransactionModel other)
+        {
+            if (other is null)
+            {
+                return false;
+            }
+
+            // TODO: FIX THIS UGLY MESS AAAAAAAAAA
+
+            if (this.Category != null && !this.Category.Equals(other.Category))
+            {
+                return false;
+            }
+
+            if (this.Location != null && !this.Location.Equals(other.Location))
+            {
+                return false;
+            }
+
+            if (this.Source != null && !this.Source.Equals(other.Source))
+            {
+                return false;
+            }
+
+            if (this.Description != null && !this.Description.Equals(other.Description))
+            {
+                return false;
+            }
+
+            if (this.Currency != null && !this.Currency.Equals(other.Currency))
+            {
+                return false;
+            }
+
+            return this.Timestamp.Equals(other.Timestamp)
+                && this.Amount.Equals(other.Amount);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this.Equals(obj as TransactionModel);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.Timestamp, this.Category, this.Location, this.Source, this.Description, this.Amount, this.Currency);
+        }
     }
 }
