@@ -93,9 +93,9 @@ namespace Budgeter.WinForms.Forms
         }
 
         #endregion
-        protected System.Windows.Forms.Button saveButton;
-        protected System.Windows.Forms.Button cancelButton;
-        protected System.Windows.Forms.Panel bottomButtonPanel;
         protected System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Panel bottomButtonPanel;
     }
 }
