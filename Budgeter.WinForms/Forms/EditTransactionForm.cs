@@ -15,6 +15,7 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 using System;
+using System.Windows.Forms;
 using Budgeter.Model.ViewModels;
 
 namespace Budgeter.WinForms.Forms
@@ -41,6 +42,12 @@ namespace Budgeter.WinForms.Forms
             this.categoryBindingSource.DataSource = this.viewModel.Categories;
             this.locationBindingSource.DataSource = this.viewModel.Locations;
             this.sourceBindingSource.DataSource = this.viewModel.Sources;
+        }
+
+        private void ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var combo = sender as ComboBox;
+            combo.DataBindings["SelectedItem"].WriteValue();
         }
     }
 }

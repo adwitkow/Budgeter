@@ -34,43 +34,29 @@ namespace Budgeter.WinForms.Forms
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.sourceComboBox = new System.Windows.Forms.ComboBox();
             this.editTransactionViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.locationComboBox = new System.Windows.Forms.ComboBox();
+            this.locationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryLabel = new System.Windows.Forms.Label();
             this.locationLabel = new System.Windows.Forms.Label();
             this.sourceLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.valueLabel = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.valuePanel = new System.Windows.Forms.Panel();
             this.amountTextBox = new System.Windows.Forms.TextBox();
             this.currencyComboBox = new System.Windows.Forms.ComboBox();
-            this.sourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.locationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bottomButtonPanel.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.transactionGroupBox.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editTransactionViewModelBindingSource)).BeginInit();
-            this.valuePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sourceBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            this.valuePanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // saveButton
-            // 
-            this.saveButton.Location = new System.Drawing.Point(108, 11);
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Location = new System.Drawing.Point(46, 11);
-            // 
-            // bottomButtonPanel
-            // 
-            this.bottomButtonPanel.Location = new System.Drawing.Point(0, 162);
-            this.bottomButtonPanel.Size = new System.Drawing.Size(272, 40);
             // 
             // mainPanel
             // 
@@ -119,6 +105,7 @@ namespace Budgeter.WinForms.Forms
             // 
             // sourceComboBox
             // 
+            this.sourceComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.editTransactionViewModelBindingSource, "Source", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.sourceComboBox.DataSource = this.sourceBindingSource;
             this.sourceComboBox.DisplayMember = "Name";
             this.sourceComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -128,13 +115,19 @@ namespace Budgeter.WinForms.Forms
             this.sourceComboBox.Size = new System.Drawing.Size(172, 21);
             this.sourceComboBox.TabIndex = 7;
             this.sourceComboBox.ValueMember = "Id";
+            this.sourceComboBox.SelectionChangeCommitted += new System.EventHandler(this.ComboBox_SelectionChangeCommitted);
             // 
             // editTransactionViewModelBindingSource
             // 
             this.editTransactionViewModelBindingSource.DataSource = typeof(Budgeter.Model.ViewModels.EditTransactionViewModel);
             // 
+            // sourceBindingSource
+            // 
+            this.sourceBindingSource.DataSource = typeof(Budgeter.Core.Entities.Source);
+            // 
             // locationComboBox
             // 
+            this.locationComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.editTransactionViewModelBindingSource, "Location", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.locationComboBox.DataSource = this.locationBindingSource;
             this.locationComboBox.DisplayMember = "Name";
             this.locationComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -144,6 +137,11 @@ namespace Budgeter.WinForms.Forms
             this.locationComboBox.Size = new System.Drawing.Size(172, 21);
             this.locationComboBox.TabIndex = 6;
             this.locationComboBox.ValueMember = "Id";
+            this.locationComboBox.SelectionChangeCommitted += new System.EventHandler(this.ComboBox_SelectionChangeCommitted);
+            // 
+            // locationBindingSource
+            // 
+            this.locationBindingSource.DataSource = typeof(Budgeter.Core.Entities.Location);
             // 
             // categoryLabel
             // 
@@ -202,6 +200,7 @@ namespace Budgeter.WinForms.Forms
             // 
             // categoryComboBox
             // 
+            this.categoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.editTransactionViewModelBindingSource, "Category", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.categoryComboBox.DataSource = this.categoryBindingSource;
             this.categoryComboBox.DisplayMember = "Name";
             this.categoryComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -211,6 +210,11 @@ namespace Budgeter.WinForms.Forms
             this.categoryComboBox.Size = new System.Drawing.Size(172, 21);
             this.categoryComboBox.TabIndex = 5;
             this.categoryComboBox.ValueMember = "Id";
+            this.categoryComboBox.SelectionChangeCommitted += new System.EventHandler(this.ComboBox_SelectionChangeCommitted);
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(Budgeter.Core.Entities.Category);
             // 
             // descriptionTextBox
             // 
@@ -253,18 +257,6 @@ namespace Budgeter.WinForms.Forms
             this.currencyComboBox.TabIndex = 10;
             this.currencyComboBox.Text = "PLN";
             // 
-            // sourceBindingSource
-            // 
-            this.sourceBindingSource.DataSource = typeof(Budgeter.Core.Entities.Source);
-            // 
-            // categoryBindingSource
-            // 
-            this.categoryBindingSource.DataSource = typeof(Budgeter.Core.Entities.Category);
-            // 
-            // locationBindingSource
-            // 
-            this.locationBindingSource.DataSource = typeof(Budgeter.Core.Entities.Location);
-            // 
             // EditTransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,17 +265,16 @@ namespace Budgeter.WinForms.Forms
             this.Name = "EditTransactionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit Transaction";
-            this.bottomButtonPanel.ResumeLayout(false);
             this.mainPanel.ResumeLayout(false);
             this.transactionGroupBox.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editTransactionViewModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sourceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             this.valuePanel.ResumeLayout(false);
             this.valuePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sourceBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.locationBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
