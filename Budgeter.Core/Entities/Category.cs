@@ -16,7 +16,7 @@
 
 namespace Budgeter.Core.Entities
 {
-    public class Category
+    public class Category : IIndexed
     {
         public int Id { get; set; }
 
