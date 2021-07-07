@@ -39,9 +39,9 @@ namespace Budgeter.WinForms.Forms
 
             await this.viewModel.LoadAsync();
 
-            this.categoryBindingSource.DataSource = this.viewModel.Categories;
-            this.locationBindingSource.DataSource = this.viewModel.Locations;
-            this.sourceBindingSource.DataSource = this.viewModel.Sources;
+            this.categoryComboBox.DataSource = this.viewModel.Categories;
+            this.locationComboBox.DataSource = this.viewModel.Locations;
+            this.sourceComboBox.DataSource = this.viewModel.Sources;
         }
 
         private void ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
