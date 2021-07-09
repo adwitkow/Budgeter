@@ -31,6 +31,8 @@ namespace Budgeter.WinForms.Controls
         {
             this.ValueMember = null;
             this.DisplayMember = "DisplayName";
+            this.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            this.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         public new IEnumerable<IIndexed> DataSource
