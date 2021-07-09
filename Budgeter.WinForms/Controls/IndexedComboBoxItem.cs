@@ -14,12 +14,37 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-namespace Budgeter.Core.Entities
-{
-    public class Source : IIndexed
-    {
-        public int Id { get; set; }
+using Budgeter.Core.Entities;
 
-        public string Name { get; set; }
+namespace Budgeter.WinForms.Controls
+{
+    public class IndexedComboBoxItem
+    {
+        public IndexedComboBoxItem(IIndexed indexed)
+        {
+            this.Base = indexed;
+        }
+
+        public string DisplayName
+        {
+            get
+            {
+                if (this.Base is null)
+                {
+                    return string.Empty;
+                }
+                else
+                {
+                    return $"{this.Base.Id}-{this.Base.Name}";
+                }
+            }
+        }
+
+        public IIndexed Base { get; }
+
+        public override string ToString()
+        {
+            return this.DisplayName;
+        }
     }
 }

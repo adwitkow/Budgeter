@@ -16,10 +16,10 @@
 
 namespace Budgeter.Core.Entities
 {
-    public class Source : IIndexed
+    public interface IIndexed
     {
-        public int Id { get; set; }
+        int Id { get; set; }
 
-        public string Name { get; set; }
+        string Name { get; set; }
     }
 }

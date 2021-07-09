@@ -32,17 +32,17 @@ namespace Budgeter.WinForms.Forms
             this.components = new System.ComponentModel.Container();
             this.transactionGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.sourceComboBox = new System.Windows.Forms.ComboBox();
+            this.sourceComboBox = new Controls.IndexedComboBox();
             this.editTransactionViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.locationComboBox = new System.Windows.Forms.ComboBox();
+            this.locationComboBox = new Controls.IndexedComboBox();
             this.locationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryLabel = new System.Windows.Forms.Label();
             this.locationLabel = new System.Windows.Forms.Label();
             this.sourceLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.valueLabel = new System.Windows.Forms.Label();
-            this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.categoryComboBox = new Controls.IndexedComboBox();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.valuePanel = new System.Windows.Forms.Panel();
@@ -106,7 +106,6 @@ namespace Budgeter.WinForms.Forms
             // sourceComboBox
             // 
             this.sourceComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.editTransactionViewModelBindingSource, "Source", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.sourceComboBox.DataSource = this.sourceBindingSource;
             this.sourceComboBox.DisplayMember = "Name";
             this.sourceComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sourceComboBox.FormattingEnabled = true;
@@ -115,7 +114,6 @@ namespace Budgeter.WinForms.Forms
             this.sourceComboBox.Size = new System.Drawing.Size(172, 21);
             this.sourceComboBox.TabIndex = 7;
             this.sourceComboBox.ValueMember = "Id";
-            this.sourceComboBox.SelectionChangeCommitted += new System.EventHandler(this.ComboBox_SelectionChangeCommitted);
             // 
             // editTransactionViewModelBindingSource
             // 
@@ -128,7 +126,6 @@ namespace Budgeter.WinForms.Forms
             // locationComboBox
             // 
             this.locationComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.editTransactionViewModelBindingSource, "Location", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.locationComboBox.DataSource = this.locationBindingSource;
             this.locationComboBox.DisplayMember = "Name";
             this.locationComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.locationComboBox.FormattingEnabled = true;
@@ -137,7 +134,6 @@ namespace Budgeter.WinForms.Forms
             this.locationComboBox.Size = new System.Drawing.Size(172, 21);
             this.locationComboBox.TabIndex = 6;
             this.locationComboBox.ValueMember = "Id";
-            this.locationComboBox.SelectionChangeCommitted += new System.EventHandler(this.ComboBox_SelectionChangeCommitted);
             // 
             // locationBindingSource
             // 
@@ -201,7 +197,6 @@ namespace Budgeter.WinForms.Forms
             // categoryComboBox
             // 
             this.categoryComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.editTransactionViewModelBindingSource, "Category", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.categoryComboBox.DataSource = this.categoryBindingSource;
             this.categoryComboBox.DisplayMember = "Name";
             this.categoryComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.categoryComboBox.FormattingEnabled = true;
@@ -210,7 +205,6 @@ namespace Budgeter.WinForms.Forms
             this.categoryComboBox.Size = new System.Drawing.Size(172, 21);
             this.categoryComboBox.TabIndex = 5;
             this.categoryComboBox.ValueMember = "Id";
-            this.categoryComboBox.SelectionChangeCommitted += new System.EventHandler(this.ComboBox_SelectionChangeCommitted);
             // 
             // categoryBindingSource
             // 
@@ -282,14 +276,14 @@ namespace Budgeter.WinForms.Forms
         #endregion
         private System.Windows.Forms.GroupBox transactionGroupBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ComboBox sourceComboBox;
-        private System.Windows.Forms.ComboBox locationComboBox;
+        private Controls.IndexedComboBox sourceComboBox;
+        private Controls.IndexedComboBox locationComboBox;
         private System.Windows.Forms.Label categoryLabel;
         private System.Windows.Forms.Label locationLabel;
         private System.Windows.Forms.Label sourceLabel;
         private System.Windows.Forms.Label descriptionLabel;
         private System.Windows.Forms.Label valueLabel;
-        private System.Windows.Forms.ComboBox categoryComboBox;
+        private Controls.IndexedComboBox categoryComboBox;
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.TextBox amountTextBox;
         private System.Windows.Forms.Panel valuePanel;

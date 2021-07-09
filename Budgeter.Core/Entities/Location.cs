@@ -16,7 +16,7 @@
 
 namespace Budgeter.Core.Entities
 {
-    public class Location
+    public class Location : IIndexed
     {
         public int Id { get; set; }
 
