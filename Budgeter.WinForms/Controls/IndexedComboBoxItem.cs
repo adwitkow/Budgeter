@@ -25,7 +25,20 @@ namespace Budgeter.WinForms.Controls
             this.Base = indexed;
         }
 
-        public string DisplayName => $"{this.Base.Id}-{this.Base.Name}";
+        public string DisplayName
+        {
+            get
+            {
+                if (this.Base is null)
+                {
+                    return string.Empty;
+                }
+                else
+                {
+                    return $"{this.Base.Id}-{this.Base.Name}";
+                }
+            }
+        }
 
         public IIndexed Base { get; }
 

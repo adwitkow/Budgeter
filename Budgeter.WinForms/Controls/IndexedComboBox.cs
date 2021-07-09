@@ -40,18 +40,8 @@ namespace Budgeter.WinForms.Controls
 
         public new IIndexed SelectedItem
         {
-            get => this.InternalSelectedItem.Base;
-            set
-            {
-                if (value is null)
-                {
-                    this.InternalSelectedItem = null;
-                }
-                else
-                {
-                    this.InternalSelectedItem = this.lookup?[value.Id];
-                }
-            }
+            get => this.InternalSelectedItem?.Base;
+            set => this.InternalSelectedItem = this.lookup?[value?.Id ?? 0];
         }
 
         private IList<IndexedComboBoxItem> InternalDataSource
@@ -75,7 +65,10 @@ namespace Budgeter.WinForms.Controls
         {
             var items = values.Select(item => new IndexedComboBoxItem(item)).ToList();
 
-            this.lookup = items.ToDictionary(item => item.Base.Id, item => item);
+            items.Insert(0, new IndexedComboBoxItem(null));
+
+            this.lookup = items.ToDictionary(item => item.Base?.Id ?? 0, item => item);
+
             this.InternalDataSource = items;
 
             return items;
