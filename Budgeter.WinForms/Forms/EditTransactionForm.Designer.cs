@@ -114,7 +114,6 @@ namespace Budgeter.WinForms.Forms
             this.sourceComboBox.Size = new System.Drawing.Size(172, 21);
             this.sourceComboBox.TabIndex = 7;
             this.sourceComboBox.ValueMember = "Id";
-            this.sourceComboBox.SelectionChangeCommitted += new System.EventHandler(this.ComboBox_SelectionChangeCommitted);
             // 
             // editTransactionViewModelBindingSource
             // 
@@ -135,7 +134,6 @@ namespace Budgeter.WinForms.Forms
             this.locationComboBox.Size = new System.Drawing.Size(172, 21);
             this.locationComboBox.TabIndex = 6;
             this.locationComboBox.ValueMember = "Id";
-            this.locationComboBox.SelectionChangeCommitted += new System.EventHandler(this.ComboBox_SelectionChangeCommitted);
             // 
             // locationBindingSource
             // 
@@ -207,7 +205,6 @@ namespace Budgeter.WinForms.Forms
             this.categoryComboBox.Size = new System.Drawing.Size(172, 21);
             this.categoryComboBox.TabIndex = 5;
             this.categoryComboBox.ValueMember = "Id";
-            this.categoryComboBox.SelectionChangeCommitted += new System.EventHandler(this.ComboBox_SelectionChangeCommitted);
             // 
             // categoryBindingSource
             // 

@@ -14,6 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -54,6 +55,11 @@ namespace Budgeter.WinForms.Controls
         {
             get => (IndexedComboBoxItem)base.SelectedItem;
             set => base.SelectedItem = value;
+        }
+
+        protected override void OnSelectionChangeCommitted(EventArgs e)
+        {
+            this.DataBindings[nameof(this.SelectedItem)].WriteValue();
         }
 
         private IEnumerable<IIndexed> ConvertFromInternalDataSource()

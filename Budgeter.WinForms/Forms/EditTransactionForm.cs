@@ -43,11 +43,5 @@ namespace Budgeter.WinForms.Forms
             this.locationComboBox.DataSource = this.viewModel.Locations;
             this.sourceComboBox.DataSource = this.viewModel.Sources;
         }
-
-        private void ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            var combo = sender as ComboBox;
-            combo.DataBindings["SelectedItem"].WriteValue();
-        }
     }
 }
